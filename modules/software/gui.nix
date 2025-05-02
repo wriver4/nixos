@@ -84,6 +84,7 @@
     # disk tools
     gparted
     gsmartcontrol
+    usbimager
 
     # system tools
     #nagios # network monitoring key CSP50
