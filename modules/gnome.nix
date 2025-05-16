@@ -22,7 +22,7 @@
     cheese
     dconf-editor
     gnome-tweaks
-    gnomeExtensions.gsconnect
+    # gnomeExtensions.gsconnect
     gnomeExtensions.force-quit
     gnomeExtensions.systemd-manager
     # gnomeExtensions.window-state-manager
