@@ -12,10 +12,10 @@ nix.settings = {
       ./modules/shell.nix
       ./modules/users.nix
       ./modules/git.nix
-      ./modules/services/servers.nix
-      ./modules/services/php.nix
-      ./modules/virtualization.nix
-      ./modules/altpkgmgr.nix
+    #  ./modules/services/servers.nix
+    #  ./modules/services/php.nix
+    #  ./modules/virtualization.nix
+    #  ./modules/altpkgmgr.nix
       ./modules/software/gui.nix
       ./modules/gnome.nix
       # <home-manager/nixos>
