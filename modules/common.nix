@@ -12,7 +12,7 @@ config = {
   # Expiremental Features
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Allow unfree packages
-  #nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {

@@ -60,7 +60,7 @@
     #misc
     ffmpeg_7-full # A complete, cross-platform solution to record, convert and stream audio and video
     clamav # Antivirus engine for detecting trojans, viruses, malware & other malicious threats
-    clamsmtp # A lightweight SMTP filter for ClamAV
+    # clamsmtp # A lightweight SMTP filter for ClamAV
 
     # programming languages
     python3 # A high-level programming language

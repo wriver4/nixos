@@ -1,6 +1,10 @@
 { config, pkgs, lib, inputs,  ... }:
  
 {
+nix.settings = {
+  download-buffer-size = 524288000;
+};
+
   imports =
     [ ./hardware-configuration.nix
       ./modules/common.nix
