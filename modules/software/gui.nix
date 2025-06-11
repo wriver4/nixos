@@ -17,7 +17,7 @@
     vivaldi
     google-chrome
     brave
-    opera
+    # opera due to lack of support
     element-web
     vdhcoapp
 

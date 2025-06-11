@@ -98,7 +98,7 @@ config = {
     unstable.cockpit # Web-based interface for system administration
     clamav # Antivirus engine for detecting trojans, viruses, malware & other malicious threats
     vulnix # Nixpkgs vulnerability scanner
-    nodejs_23 # Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine
+    nodejs_24 # Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine
   ];
 /*
   # services.cockpit.package = pkgs.cockpit;
