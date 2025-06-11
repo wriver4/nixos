@@ -69,6 +69,8 @@
     discord
     element-desktop
     zoom-us
+    xdg-desktop-portal
+    xdg-desktop-portal-gnome
     vesktop
     signal-desktop
     rocketchat-desktop
