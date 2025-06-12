@@ -2,7 +2,7 @@
  
 {
 nix.settings = {
-  download-buffer-size = 524288000;
+  download-buffer-size = 524288000; # 500 MiB
 };
 
   imports =
@@ -12,10 +12,10 @@ nix.settings = {
       ./modules/shell.nix
       ./modules/users.nix
       ./modules/git.nix
-    #  ./modules/services/servers.nix
-    #  ./modules/services/php.nix
-    #  ./modules/virtualization.nix
-    #  ./modules/altpkgmgr.nix
+      ./modules/services/servers.nix
+      ./modules/services/php.nix
+      ./modules/virtualization.nix
+      ./modules/altpkgmgr.nix
       ./modules/software/gui.nix
       ./modules/gnome.nix
       # <home-manager/nixos>
