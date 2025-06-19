@@ -60,7 +60,8 @@
     httrack
     #flatpack-builder
     unstable.node-red
-    unstable.bcompare 
+    unstable.bcompare
+    postman
 
 
     #irc like
