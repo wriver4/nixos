@@ -62,6 +62,7 @@
     unstable.node-red
     unstable.bcompare
     postman
+    d2
 
 
     #irc like
