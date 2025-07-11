@@ -24,11 +24,11 @@
     gnome-tweaks
     # gnomeExtensions.gsconnect
     gnomeExtensions.force-quit
-    gnomeExtensions.systemd-manager
+    # gnomeExtensions.systemd-manager
     # gnomeExtensions.window-state-manager
     # gnomeExtensions.serenity-desktop # may conflict with window-state-manager
-    gnomeExtensions.rdesktop-launcher # later
-    gnomeExtensions.public-ip-address # later
+    # gnomeExtensions.rdesktop-launcher
+    gnomeExtensions.public-ip-address
     nautilus-python
     nautilus-open-any-terminal
   ];
