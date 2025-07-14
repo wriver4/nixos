@@ -22,8 +22,14 @@
     cheese
     dconf-editor
     gnome-tweaks
-    # gnomeExtensions.gsconnect
+    gnomeExtensions.astra-monitor
     gnomeExtensions.force-quit
+    gnomeExtensions.date-menu-formatter
+    gnomeExtensions.dock-from-dash
+    gnomeExtensions.hide-activities-button
+    gnomeExtensions.places-status-indicator
+    gnomeExtensions.tweaks-in-system-menu
+    gnomeExtensions.xwayland-indicator
     # gnomeExtensions.systemd-manager
     # gnomeExtensions.window-state-manager
     # gnomeExtensions.serenity-desktop # may conflict with window-state-manager
