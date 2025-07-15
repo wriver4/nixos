@@ -61,8 +61,10 @@
     #flatpack-builder
     unstable.node-red
     unstable.bcompare
+    unstable.claude-code
     postman
     d2
+    lunacy
 
 
     #irc like
