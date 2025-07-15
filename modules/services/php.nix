@@ -11,8 +11,6 @@
     php84Packages.phpstan
     php84Packages.php-cs-fixer-composer-installer
     php84Packages.php-cs-fixer-fixer
-    mago
-    
   ];
 };
 }
