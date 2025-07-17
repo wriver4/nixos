@@ -49,6 +49,7 @@
     terminator
     kdiff3
     vscode
+    code-nautilus
     figma-linux
     filezilla
     libfilezilla
