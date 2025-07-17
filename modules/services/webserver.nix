@@ -254,7 +254,8 @@
 
   # Firewall configuration - only add ports if not already configured
   networking.firewall = {
-    enable = true;
+    enable = false; # Disable NixOS firewall to avoid conflicts
+    allowedUDPPorts = [];
     allowedTCPPorts = [ 80 443 3306 ];
   };
 
