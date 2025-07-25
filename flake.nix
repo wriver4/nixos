@@ -7,8 +7,8 @@
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
-    # Please replace my-nixos with your hostname
-    nixosConfigurations.king = nixpkgs.lib.nixosSystem {
+    # NixOS configuration matching the system hostname
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         # Import the previous configuration.nix we used,
