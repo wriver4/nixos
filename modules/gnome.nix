@@ -24,7 +24,7 @@
     gnome-tweaks
     # gnomeExtensions.astra-monitor
     gnomeExtensions.force-quit
-    gnomeExtensions.date-menu-formatter
+    gnomeExtensions.panel-date-format
     gnomeExtensions.dock-from-dash
     gnomeExtensions.hide-activities-button
     gnomeExtensions.places-status-indicator
