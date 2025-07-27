@@ -24,16 +24,14 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
-  fileSystems."/mnt/bigtera" =
-    { device = "/dev/disk/by-uuid/8beba9c1-0c8f-4009-989b-5a2044c38ce8";
-      fsType = "ext4";
-      options = [ "nofail" "auto" "x-gvfs-show" ];
-    };
-
   fileSystems."/mnt/Systems_Backups" =
     { device = "/dev/disk/by-uuid/55abbde8-26a4-43ed-ab52-cd2232162e6d";
       fsType = "ext4";
-      options = [ "nofail" "auto" "x-gvfs-show" ];
+    };
+
+  fileSystems."/mnt/bigtera" =
+    { device = "/dev/disk/by-uuid/8beba9c1-0c8f-4009-989b-5a2044c38ce8";
+      fsType = "ext4";
     };
 
   swapDevices =
@@ -46,12 +44,11 @@
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp0s25.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp11s0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.lxdbr0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.vethdb42e6ec.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp10s2f0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp10s2f1.useDHCP = lib.mkDefault true;
   # networking.interfaces.virbr0.useDHCP = lib.mkDefault true;
   # networking.interfaces.vnet0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlp12s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlp11s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
