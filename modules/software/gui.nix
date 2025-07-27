@@ -66,6 +66,7 @@
     postman
     d2
     lunacy
+    uv
 
 
     #irc like
