@@ -1,8 +1,13 @@
 { config, pkgs, lib, inputs,  ... }:
-
-
  
 {
+nixpkgs.config.allowUnfree = true;
+nixpkgs.config.packageOverrides = pkgs: {
+      unstable = import <unstable> {
+        config = config.nixpkgs.config;
+      };
+    };
+
 nix.settings = {
   download-buffer-size = 524288000; # 500 MiB
 };
@@ -16,7 +21,7 @@ nix.settings = {
       ./modules/git.nix
       ./modules/services/servers.nix
       ./modules/services/php.nix
-      ./modules/services/webserver.nix
+      #./modules/services/webserver.nix
       ./modules/virtualization.nix
       ./modules/altpkgmgr.nix
       ./modules/software/gui.nix

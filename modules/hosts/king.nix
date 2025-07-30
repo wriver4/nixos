@@ -16,13 +16,12 @@
   };
   
   nixpkgs.config = {
-    allowUnfree = true;
     nvidia.acceptLicense = true;
-    packageOverrides = pkgs: {
-      unstable = import <unstable> {
-        config = config.nixpkgs.config;
-      };
-    };
+    # packageOverrides = pkgs: {
+      #unstable = import <unstable> {
+     #   config = config.nixpkgs.config;
+     # };
+    #};
   };
 
 

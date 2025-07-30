@@ -10,6 +10,7 @@
     geany
     marktext
     #stirling-pdf
+    kdePackages.ghostwriter
 
 
     #Browsers
