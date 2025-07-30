@@ -28,6 +28,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelModules = [ "kvm-intel" ];
   boot.binfmt.registrations.appimage = {
     wrapInterpreterInShell = false;
