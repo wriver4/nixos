@@ -13,8 +13,8 @@
         #EROFS: read-only file system, open '/etc/systemd/system/pm2-mark.service'
     nodejs_24
     npm-check
-    npmlock2nix
-    
+    npm-lockfile-fix
+    node2nix
   ];
   services.mysql = {
   enable = true;
