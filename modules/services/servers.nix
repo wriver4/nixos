@@ -13,6 +13,7 @@
         #EROFS: read-only file system, open '/etc/systemd/system/pm2-mark.service'
     nodejs_24
     npm-check
+    node2nix
     
   ];
   services.mysql = {
