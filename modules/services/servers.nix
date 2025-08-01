@@ -12,6 +12,7 @@
         #PM2][ERROR] Failure when trying to write startup script
         #EROFS: read-only file system, open '/etc/systemd/system/pm2-mark.service'
     nodejs_24
+    npm-check
     
   ];
   services.mysql = {
