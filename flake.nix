@@ -7,7 +7,7 @@
     
     # Claude Desktop for Linux
     claude-desktop = {
-      url = "github:khaneliman/claude-desktop-nix";
+      url = "github:k3d3/claude-desktop-linux-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

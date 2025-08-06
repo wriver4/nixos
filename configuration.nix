@@ -34,7 +34,7 @@ nix.settings = {
   # Enable services for Claude Desktop
   services.claude-desktop = {
     enable = true;
-    withMcpSupport = true;
+    withMcpSupport = false;
   };
   # environment.systemPackages = with pkgs; [ ];
 

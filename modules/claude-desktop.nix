@@ -8,7 +8,7 @@ with lib;
     
     package = mkOption {
       type = types.package;
-      default = inputs.claude-desktop.packages.${pkgs.system}.default;
+      default = inputs.claude-desktop.packages.${pkgs.system}.claude-desktop;
       description = "The Claude Desktop package to use";
     };
     
