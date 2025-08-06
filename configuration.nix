@@ -29,8 +29,21 @@ nix.settings = {
       # <home-manager/nixos>
     ];
 
+
+  # Enable services for Claude Desktop
+  services.claude-desktop = {
+  enable = true;
+  autoStart = true;  # Now it's configurable!
+  withMcpSupport = true;
+  };
   # environment.systemPackages = with pkgs; [ ];
-    
+  
+  # Ensure proper desktop integration
+  xdg = {
+    portal.enable = true;
+    mime.enable = true;
+    icons.enable = true;
+  };
 
 
   # This value determines the NixOS release from which the default
