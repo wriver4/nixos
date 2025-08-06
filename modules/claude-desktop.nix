@@ -64,7 +64,9 @@ with lib;
       
       serviceConfig = {
         Type = "simple";
-        ExecStart = "${config.services.claude-desktop.package}/bin/claude-desktop";
+        ExecStart = "${if config.services.claude-desktop.withMcpSupport 
+                       then inputs.claude-desktop.packages.${pkgs.system}.claude-desktop-with-fhs
+                       else config.services.claude-desktop.package}/bin/claude-desktop";
         Restart = "on-failure";
         RestartSec = 5;
         # Ensure proper environment for desktop apps
@@ -81,7 +83,7 @@ with lib;
     # Environment variables for Electron apps
     environment.sessionVariables = {
       # Fix for Electron apps in Wayland
-      NIXOS_OZONE_WL = mkIf config.programs.wayland.enable "1";
+      #NIXOS_OZONE_WL = mkIf config.programs.wayland.enable "1";
     };
   };
 }
