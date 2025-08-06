@@ -26,16 +26,14 @@ nix.settings = {
       ./modules/altpkgmgr.nix
       ./modules/software/gui.nix
       ./modules/gnome.nix
-      ./modules/claude-desktop.nix
       # <home-manager/nixos>
     ];
 
 
-  # Enable services for Claude Desktop
-  services.claude-desktop = {
-    enable = true;
-    withMcpSupport = false;
-  };
+  # Install Claude Desktop via AppImage
+  environment.systemPackages = with pkgs; [
+    appimage-run
+  ];
   # environment.systemPackages = with pkgs; [ ];
 
   # Ensure proper desktop integration
