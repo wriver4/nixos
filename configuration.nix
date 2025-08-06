@@ -31,13 +31,13 @@ nix.settings = {
 
 
   # Enable services for Claude Desktop
-  services.claude-desktop = {
-  enable = true;
-  autoStart = true;  # Now it's configurable!
-  withMcpSupport = true;
-  };
+ # services.claude-desktop = {
+ # enable = true;
+ # autoStart = true;  # Now it's configurable!
+ # withMcpSupport = true;
+ # };
   # environment.systemPackages = with pkgs; [ ];
-  
+
   # Ensure proper desktop integration
   xdg = {
     portal.enable = true;
