@@ -79,7 +79,7 @@ with lib;
     # Environment variables for Electron apps
     environment.sessionVariables = {
       # Fix for Electron apps in Wayland
-      NIXOS_OZONE_WL = mkIf config.programs.wayland.enable "1";
+      NIXOS_OZONE_WL = mkIf (config.programs.xwayland.enable or false) "1";
     };
   };
 }
