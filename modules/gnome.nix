@@ -14,15 +14,14 @@
     terminal = "terminator";
   };
     
-  environment.systemPackages = with pkgs; [
-    
+  environment.systemPackages = with pkgs; [ 
     brasero
     gnome-builder
     gnome-usage
     cheese
     dconf-editor
     gnome-tweaks
-    # gnomeExtensions.astra-monitor
+    gnomeExtensions.tophat
     gnomeExtensions.force-quit
     gnomeExtensions.panel-date-format
     gnomeExtensions.dock-from-dash
@@ -30,11 +29,7 @@
     gnomeExtensions.places-status-indicator
     gnomeExtensions.tweaks-in-system-menu
     gnomeExtensions.xwayland-indicator
-    # gnomeExtensions.system-monitor
     # gnomeExtensions.systemd-manager
-    # gnomeExtensions.window-state-manager
-    # gnomeExtensions.serenity-desktop # may conflict with window-state-manager
-    # gnomeExtensions.rdesktop-launcher
     gnomeExtensions.public-ip-address
     nautilus-python
     nautilus-open-any-terminal
