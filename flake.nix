@@ -7,9 +7,9 @@
     
     # Claude Desktop for Linux
     claude-desktop = {
-      url = "github:k3d3/claude-desktop-linux-flake";
+      url = "github:zhaofengli/claude-desktop-nix";
       inputs.nixpkgs.follows = "nixpkgs";
-    }; # <-- This closing brace was missing
+    };
   };
 
   outputs = { self, nixpkgs, claude-desktop, ... }@inputs: {

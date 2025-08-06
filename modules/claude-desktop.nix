@@ -8,7 +8,7 @@ with lib;
     
     package = mkOption {
       type = types.package;
-      default = inputs.claude-desktop.packages.${pkgs.system}.claude-desktop;
+      default = inputs.claude-desktop.packages.${pkgs.system}.default;
       description = "The Claude Desktop package to use";
     };
     
@@ -22,9 +22,7 @@ with lib;
   config = mkIf config.services.claude-desktop.enable {
     # Add Claude Desktop to system packages
     environment.systemPackages = [
-      (if config.services.claude-desktop.withMcpSupport 
-       then inputs.claude-desktop.packages.${pkgs.system}.claude-desktop-with-fhs
-       else config.services.claude-desktop.package)
+      config.services.claude-desktop.package
       
       # Required system dependencies
       pkgs.libnotify   # For notifications
@@ -64,9 +62,7 @@ with lib;
       
       serviceConfig = {
         Type = "simple";
-        ExecStart = "${if config.services.claude-desktop.withMcpSupport 
-                       then inputs.claude-desktop.packages.${pkgs.system}.claude-desktop-with-fhs
-                       else config.services.claude-desktop.package}/bin/claude-desktop";
+        ExecStart = "${config.services.claude-desktop.package}/bin/claude-desktop";
         Restart = "on-failure";
         RestartSec = 5;
         # Ensure proper environment for desktop apps
