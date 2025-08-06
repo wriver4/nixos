@@ -63,7 +63,7 @@
     #flatpack-builder
     unstable.node-red
     unstable.bcompare
-    unstable.claude-code
+    unstable.emcee
     unstable.vscode-extensions.saoudrizwan.claude-dev
     postman
     d2
