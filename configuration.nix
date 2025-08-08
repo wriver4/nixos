@@ -30,11 +30,11 @@ nix.settings = {
     ];
 
 
-  # Install Claude Desktop via AppImage
+  # Install via AppImage
   environment.systemPackages = with pkgs; [
     appimage-run
   ];
-  # environment.systemPackages = with pkgs; [ ];
+
 
   # Ensure proper desktop integration
   xdg = {

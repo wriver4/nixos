@@ -15,7 +15,7 @@
         # so the old configuration file still takes effect
         ./configuration.nix
       ];
-      # Pass inputs to modules so they can access claude-desktop
+      # Pass inputs to modules so they can access common inputs
       specialArgs = { inherit inputs; };
     };
   };

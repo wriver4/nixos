@@ -22,7 +22,6 @@
     eza
     tree
     bat
-    unstable.claude-code
 
     # networking tools
     mtr # A network diagnostic tool
