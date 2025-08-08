@@ -30,6 +30,7 @@
     gnomeExtensions.tweaks-in-system-menu
     gnomeExtensions.xwayland-indicator
     # gnomeExtensions.systemd-manager
+    unstable.gnomeExtensions.keep-pinned-apps-in-appgrid
     gnomeExtensions.public-ip-address
     nautilus-python
     nautilus-open-any-terminal

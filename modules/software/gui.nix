@@ -56,7 +56,7 @@
     libfilezilla
     #mailcatcher
     sqlitebrowser
-    mysql-workbench
+    dbeaver-bin
     #pgadmin4
     #devbox
     httrack
