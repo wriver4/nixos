@@ -6,7 +6,8 @@
     
   environment.systemPackages = with pkgs; [
     # text editors
-    libreoffice-fresh
+    libreoffice-fresh 
+    hunspell # spell checker for libreoffice
     geany
     marktext
     #stirling-pdf
