@@ -36,7 +36,7 @@
     drawio
 
     #Communication
-    thunderbird
+    thunderbird-latest-unwrapped
     unstable.nextcloud-talk-desktop
 
     # Security
@@ -69,6 +69,7 @@
     d2
     lunacy
     uv
+    unstable.playwright
 
 
     #irc like
