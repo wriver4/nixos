@@ -36,7 +36,7 @@
     drawio
 
     #Communication
-    thunderbird-latest-unwrapped
+    unstable.thunderbird-latest-unwrapped
     unstable.nextcloud-talk-desktop
 
     # Security
