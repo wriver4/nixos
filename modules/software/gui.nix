@@ -19,6 +19,7 @@
     vivaldi
     google-chrome
     brave
+    # browsers # I am not ready yet
     # opera due to lack of support
     element-web
     vdhcoapp
@@ -70,6 +71,12 @@
     lunacy
     uv
     unstable.playwright
+    unstable.ida-free
+    
+    # AI
+    # ollama
+    # ollama-cuda
+    # gollama
 
 
     #irc like

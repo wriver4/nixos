@@ -91,7 +91,7 @@ config = {
     _1password-cli # 1Password CLI
     openssl # A toolkit for the Transport Layer Security (TLS) and Secure Sockets Layer (SSL) protocols
     wget # A network utility to retrieve files from the Web
-    # tailscale # Tailscale is a mesh VPN that makes it easy to connect your devices, wherever they are.
+    tailscale # Tailscale is a mesh VPN that makes it easy to connect your devices, wherever they are.
     nh # nix cli helper
     nix-output-monitor # Monitor Nix builds
     nixos-generators # Generate NixOS configurations
