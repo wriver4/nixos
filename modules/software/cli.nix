@@ -22,6 +22,8 @@
     eza
     tree
     bat
+    nushell
+    
 
     # networking tools
     mtr # A network diagnostic tool
