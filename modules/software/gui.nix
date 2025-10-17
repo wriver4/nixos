@@ -72,6 +72,13 @@
     uv
     unstable.playwright
     # unstable.ida-free was in a hurry
+    #Please go to https://my.hex-rays.com/dashboard/download-center/9.1/ida-free to download it yourself, and add it to the Nix store
+    #   > using either
+    #   >   nix-store --add-fixed sha256 ida-free-pc_91_x64linux.run
+    #   > or
+    #   >   nix-prefetch-url --type sha256 file:///path/to/ida-free-pc_91_x64linux.run
+    #   >
+    #   > ***
     
     # AI
     # ollama
