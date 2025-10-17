@@ -71,7 +71,7 @@
     lunacy
     uv
     unstable.playwright
-    unstable.ida-free
+    # unstable.ida-free was in a hurry
     
     # AI
     # ollama
