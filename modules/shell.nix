@@ -2,7 +2,12 @@
 
 {
   config = {   
-    programs.starship.enable = true;
+    programs.starship= {
+    enable = true;
+    settings = {
+      command_timeout = 1000;
+    };
+   };
     programs.zsh = {
       enable = true;
       enableCompletion = true;
