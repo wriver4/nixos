@@ -39,6 +39,15 @@
     #Communication
     unstable.thunderbird-latest-unwrapped
     unstable.nextcloud-talk-desktop
+    unstable.anydesk
+    #discord
+    #zoom-client
+    #slack-desktop
+    #signal-desktop
+    #telegram-desktop
+    #whatsapp-for-linux
+    #viber
+    #teamspeak3client
 
     # Security
      fwbuilder
