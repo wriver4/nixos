@@ -11,7 +11,23 @@
     geany
     marktext
     #stirling-pdf
-    kdePackages.ghostwriter
+    kdePackages.ghostwriter # markdown editor
+    sublime-text
+    atom
+    visual-studio-code-bin
+    intellij-idea-community-edition
+    pycharm-professional
+    android-studio
+    eclipse-jee
+    
+    # AI
+    lmstudio
+    vllm
+    llama.cpp
+    #openai-whisper
+    #whisperx
+    #stable-diffusion-webui
+    
 
 
     #Browsers
