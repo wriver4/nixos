@@ -12,8 +12,6 @@
     marktext
     #stirling-pdf
     kdePackages.ghostwriter # markdown editor
-    sublime-text
-    atom
     visual-studio-code-bin
     intellij-idea-community-edition
     pycharm-professional
