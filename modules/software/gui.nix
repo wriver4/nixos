@@ -11,12 +11,7 @@
     geany
     marktext
     #stirling-pdf
-    kdePackages.ghostwriter # markdown editor
-    visual-studio-code-bin
-    intellij-idea-community-edition
-    pycharm-professional
-    android-studio
-    eclipse-jee
+
     
     # AI
     lmstudio
@@ -94,6 +89,11 @@
     lunacy
     uv
     unstable.playwright
+    kdePackages.ghostwriter # markdown editor
+    jetbrains.pycharm-community
+    android-studio
+    eclipses.eclipse-jee
+    zulu24
     # unstable.ida-free was in a hurry
     #Please go to https://my.hex-rays.com/dashboard/download-center/9.1/ida-free to download it yourself, and add it to the Nix store
     #   > using either
