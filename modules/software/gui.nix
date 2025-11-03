@@ -16,7 +16,7 @@
     # AI
     lmstudio
     vllm
-    llama.cpp
+    llama-cpp
     #openai-whisper
     #whisperx
     #stable-diffusion-webui
