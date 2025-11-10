@@ -14,13 +14,15 @@
 
     
     # AI
-    lmstudio
-    vllm
-    llama-cpp
-    #openai-whisper
-    #whisperx
-    #stable-diffusion-webui
-    
+    # lmstudio
+    # vllm
+    # llama-cpp
+    # openai-whisper
+    # whisperx
+    # stable-diffusion-webui
+    # ollama
+    # ollama-cuda
+    # gollama
 
 
     #Browsers
@@ -31,7 +33,7 @@
     # browsers # I am not ready yet
     # opera due to lack of support
     element-web
-    vdhcoapp
+    # vdhcoapp
 
     #Media
     vlc
@@ -42,7 +44,7 @@
     gimp
     obs-studio
     imagemagick # image manipulation
-    #drawing
+    # drawing
     drawio
 
     #Communication
@@ -80,20 +82,21 @@
     #pgadmin4
     #devbox
     httrack
-    #flatpack-builder
-    unstable.node-red
-    unstable.bcompare
-    unstable.emcee
+    # flatpack-builder
+    # unstable.node-red
+    # unstable.bcompare
+    # unstable.emcee
     postman
-    d2
-    lunacy
-    uv
+    # d2
+    # lunacy
+    # uv
+    unstable.n8n
     unstable.playwright
     kdePackages.ghostwriter # markdown editor
     jetbrains.pycharm-community
     android-studio
     eclipses.eclipse-jee
-    zulu24
+    # zulu24
     # unstable.ida-free was in a hurry
     #Please go to https://my.hex-rays.com/dashboard/download-center/9.1/ida-free to download it yourself, and add it to the Nix store
     #   > using either
@@ -103,10 +106,7 @@
     #   >
     #   > ***
     
-    # AI
-    # ollama
-    # ollama-cuda
-    # gollama
+  
 
 
     #irc like
