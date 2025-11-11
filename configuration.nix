@@ -1,16 +1,16 @@
 { config, pkgs, lib, inputs,  ... }:
  
 {
-nixpkgs.config.allowUnfree = true;
-nixpkgs.config.packageOverrides = pkgs: {
-      unstable = import <unstable> {
-        config = config.nixpkgs.config;
-      };
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.packageOverrides = pkgs: {
+    unstable = import <unstable> {
+      config = config.nixpkgs.config;
     };
+  };
 
-nix.settings = {
-  download-buffer-size = 524288000; # 500 MiB
-};
+  nix.settings = {
+    download-buffer-size = 524288000; # 500 MiB
+  };
 
   imports =
     [ ./hardware-configuration.nix
@@ -29,6 +29,10 @@ nix.settings = {
       # <home-manager/nixos>
     ];
 
+  systemd.user.services."app@autostart".serviceConfig = {
+    MemoryHigh = "80%";
+    MemoryMax = "90%";
+  };
 
   # Install via AppImage
   environment.systemPackages = with pkgs; [
