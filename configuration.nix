@@ -29,6 +29,7 @@
       # <home-manager/nixos>
     ];
 
+  # try to keep google chrome from shutting down vscode
   systemd.user.services."app@autostart".serviceConfig = {
     MemoryHigh = "80%";
     MemoryMax = "90%";
