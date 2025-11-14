@@ -89,11 +89,12 @@
     postman
     # d2
     # lunacy
-    # uv
+    uv
     unstable.n8n
     unstable.playwright
     kdePackages.ghostwriter # markdown editor
     jetbrains.pycharm-community
+    jetbrains-toolbox
     android-studio
     eclipses.eclipse-jee
     # zulu24

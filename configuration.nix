@@ -40,6 +40,8 @@
     appimage-run
   ];
 
+  # dynamic linking programs
+  programs.nix-ld.enable = true;
 
   # Ensure proper desktop integration
   xdg = {
