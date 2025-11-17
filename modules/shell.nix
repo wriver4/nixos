@@ -5,7 +5,7 @@
     programs.starship= {
     enable = true;
     settings = {
-      command_timeout = 1000;
+      command_timeout = 1000; # in milliseconds 
     };
    };
     programs.zsh = {
