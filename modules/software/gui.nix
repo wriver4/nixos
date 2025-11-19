@@ -92,7 +92,7 @@
     # lunacy
     uv
     unstable.n8n
-    unstable.playwright-test
+    playwright-test
     kdePackages.ghostwriter # markdown editor
     jetbrains.pycharm-community
     jetbrains-toolbox
