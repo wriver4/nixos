@@ -12,6 +12,10 @@
     download-buffer-size = 524288000; # 500 MiB
   };
 
+  # Enable automatic optimization of the Nix store
+  nix.settings.auto-optimise-store = true;
+  nix.optimise.automatic = true;
+
   imports =
     [ ./hardware-configuration.nix
       ./modules/common.nix
