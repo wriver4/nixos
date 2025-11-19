@@ -71,7 +71,7 @@
     # Dev Tools
     terminator
     kdiff3
-    vscode
+    unstable.vscode
     code-nautilus
     figma-linux
     filezilla
