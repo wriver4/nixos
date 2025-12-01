@@ -23,6 +23,7 @@
     ./modules/shell.nix
     ./modules/users.nix
     ./modules/git.nix
+    ./modules/services/security.nix
     ./modules/services/servers.nix
     ./modules/services/php.nix
     ./modules/services/webserver.nix
