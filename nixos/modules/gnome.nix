@@ -9,12 +9,15 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   services.gnome.gnome-keyring.enable = true;
+  services.gvfs.enable = true;
 
   programs.seahorse.enable = true;
   programs.nautilus-open-any-terminal = {
     enable = true;
     terminal = "terminator";
   };
+
+
     
   environment.systemPackages = with pkgs; [ 
     brasero
@@ -23,6 +26,10 @@
     cheese
     dconf-editor
     gnome-tweaks
+    wl-clipboard
+    wl-clipboard-x11
+    xclip
+    xsel
     gnomeExtensions.tophat
     gnomeExtensions.force-quit
     gnomeExtensions.panel-date-format

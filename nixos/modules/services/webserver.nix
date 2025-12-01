@@ -21,8 +21,8 @@ let
   };
 
   virtualHosts = lib.listToAttrs (map (site: lib.nameValuePair site (mkPhpVirtualHost site)) sites);
-  tmpfilesRules = [ "d /var/www 0755 www-data www-data" ] ++ 
-    (map (site: "d /var/www/${site} 0755 www-data www-data") sites);
+  tmpfilesRules = [ "d /var/www 0775 www-data www-data -" ] ++ 
+    (map (site: "d /var/www/${site} 0775 www-data www-data -") sites);
 
 in
 {
@@ -52,5 +52,11 @@ in
   };
 
   systemd.tmpfiles.rules = tmpfilesRules ++ 
-    (map (site: "f /var/www/${site}/index.php 0644 www-data www-data - \"<?php phpinfo(); ?>\"") sites);
+    (map (site: "f /var/www/${site}/index.php 0664 mark www-data - \"<?php phpinfo(); ?>\"") sites);
+
+  system.activationScripts.fixWebserverPerms = lib.stringAfter ["users"] ''
+    chmod 0775 /var/www
+    ${lib.concatStringsSep "\n" (map (site: "chmod 0775 /var/www/${site}") sites)}
+    ${lib.concatStringsSep "\n" (map (site: "chmod 0664 /var/www/${site}/index.php 2>/dev/null || true") sites)}
+  '';
 }
