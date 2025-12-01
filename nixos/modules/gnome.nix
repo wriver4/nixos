@@ -46,11 +46,11 @@
     environment.gnome.excludePackages = with pkgs;[
       geary # email
       epiphany # web browser
+      yelp # help viewer
       gnome-maps
       gnome-weather
       gnome-tour
       gnome-contacts
-      gnome-help
     ];
 
     #fontDir.enable = true;
