@@ -51,6 +51,8 @@
     gnome-maps
     gnome-weather
     gnome-tour
+    gnome-contacts
+    gnome-help
   ];
 
 

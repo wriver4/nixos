@@ -16,7 +16,7 @@
 
       shellAliases = {
         ll = "ls -l";
-        update = "sudo nixos-rebuild switch";
+        update = "sudo nixos-rebuild switch --upgrade --impure";
         ss = "sudo -s";
         mf = "touch ";
         nlg = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
