@@ -8,6 +8,7 @@ let
     forceSSL = false;
     enableACME = false;
     locations."/" = {
+      index = "index.php";
       tryFiles = "$uri $uri/ /index.php?$query_string";
     };
     locations."~ \\.php$" = {
@@ -25,6 +26,10 @@ let
 
 in
 {
+  networking.hosts = {
+    "127.0.0.1" = sites;
+  };
+
   users.users.www-data = {
     isSystemUser = true;
     group = "www-data";
@@ -46,5 +51,6 @@ in
     virtualHosts = virtualHosts;
   };
 
-  systemd.tmpfiles.rules = tmpfilesRules;
+  systemd.tmpfiles.rules = tmpfilesRules ++ 
+    (map (site: "f /var/www/${site}/index.php 0644 www-data www-data - \"<?php phpinfo(); ?>\"") sites);
 }
