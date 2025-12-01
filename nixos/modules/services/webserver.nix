@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  sites = [ "site1.local" "site2.local" ];
+  sites = [ "site1.local" "site2.local" "dir.local" ];
   
   mkPhpVirtualHost = siteName: {
     root = "/var/www/${siteName}";
