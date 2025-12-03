@@ -14,6 +14,7 @@ in
   #services.stirling-pdf.enable=true;
     
   environment.systemPackages = with pkgs; [
+
     # text editors
     libreoffice-fresh 
     hunspell # spell checker for libreoffice
@@ -86,7 +87,6 @@ in
     sqlitebrowser
     dbeaver-bin
     #pgadmin4
-    #devbox
     httrack
     # flatpack-builder
     # unstable.node-red
@@ -145,23 +145,23 @@ in
     stacer
   ];
 
-
-  # flatpacks list
-    # AnyDesk
-    # Gaphor
-    # Github Desktop
-    # masterpdfeditor
-    # Podman Desktop
-    # boxy-svg
-    # image optimizer
-    # dropbox
-    # lightworks
+  /* Alternate installation methods
+    flatpacks list
+      AnyDesk
+      Gaphor
+      Github Desktop
+      masterpdfeditor
+      Podman Desktop
+      boxy-svg
+      image optimizer
+      dropbox
+      lightworks
+    appimages
+      Lepton
+    vm's
+      beyondcompare
+      cockpit
+  */
   
-  # appimages
-    # Lepton
-
-  # vm's
-    # beyondcompare
-    # cockpit
   };
 }

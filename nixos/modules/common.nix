@@ -37,17 +37,6 @@ config = {
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # cockpit
-  /*services.cockpit = {
-    enable = true;
-    port = 9090;
-    settings = {
-      WebService = {
-        AllowUnencrypted = true;
-      };
-    };
-  };
-  */
   programs.nano.nanorc = ''
     set nowrap
     set tabstospaces
@@ -60,19 +49,14 @@ config = {
       X11Forwarding = true;
       PermitRootLogin = "no"; # disable root login
       PasswordAuthentication = false; # disable password login
+      #UseDns = true;
     };
     openFirewall = true;
   };
 
   # List services that you want to enable:
   
-  # Enable the OpenSSH daemon.
-   #services.openssh.enable = true;
-   #services.openssh.settings = {
-    # X11X11Forwarding = true;
-     #UseDns = true;
-    # PasswordAuthentication = false; 
-   #};
+
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
