@@ -3,7 +3,7 @@
 {
 
 imports = [
-   ./software/cli.nix
+   ./software/cli
    # ./backup.nix
 ];
 
