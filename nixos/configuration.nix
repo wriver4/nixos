@@ -29,7 +29,8 @@
     ./modules/services/webserver.nix
     ./modules/virtualization.nix
     ./modules/altpkgmgr.nix
-    ./modules/software/gui.nix
+    ./modules/software/gui
+    ./modules/software/cli
     ./modules/gnome.nix
     # <home-manager/nixos>
   ];
