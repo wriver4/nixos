@@ -15,7 +15,6 @@
       wxhexeditor
       phoronix-test-suite
       #testdisk-qt
-      stacer
     ];
   };
 }
