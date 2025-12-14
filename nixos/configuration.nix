@@ -1,9 +1,10 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, inputs, nixpkgs-unstable, ... }:
 
 {
-  
+
   nixpkgs.config.packageOverrides = pkgs: {
-    unstable = import <unstable> {
+    unstable = import nixpkgs-unstable {
+      system = pkgs.system;
       config = config.nixpkgs.config;
     };
   };

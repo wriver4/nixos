@@ -4,9 +4,10 @@
   inputs = {
     # NixOS official package source
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, nixpkgs-unstable, ... }@inputs: {
     # NixOS configuration matching the system hostname
     nixosConfigurations.king = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -16,7 +17,7 @@
         ./configuration.nix
       ];
       # Pass inputs to modules so they can access common inputs
-      specialArgs = { inherit inputs; };
+      specialArgs = { inherit inputs nixpkgs-unstable; };
     };
   };
 }
