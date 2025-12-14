@@ -4,7 +4,7 @@
 
   nixpkgs.config.packageOverrides = pkgs: {
     unstable = import nixpkgs-unstable {
-      system = pkgs.system;
+      system = pkgs.stdenv.hostPlatform.system;
       config = config.nixpkgs.config;
     };
   };
