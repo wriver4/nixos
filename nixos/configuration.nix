@@ -9,7 +9,8 @@
   };
 
   nix.settings = {
-    download-buffer-size = 524288000; # 500 MiB
+   # download-buffer-size = 524288000; # 500 MiB
+    download-buffer-size = 1048576000; # 1000 MiB
   };
 
   # Enable automatic optimization of the Nix store
