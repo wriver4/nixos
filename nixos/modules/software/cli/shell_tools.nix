@@ -9,6 +9,7 @@
       tree
       bat
       nushell
+      jq
     ];
   };
 }
