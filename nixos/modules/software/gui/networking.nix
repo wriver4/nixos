@@ -3,7 +3,7 @@
 {
   config = {
     environment.systemPackages = with pkgs; [
-      angryipscanner
+      #angryipscanner
       #zmap
       #netscanner
       #iperf3d
