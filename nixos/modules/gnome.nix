@@ -5,8 +5,8 @@
 {
   config = {
 
-    services.xserver.displayManager.gdm.enable = true;
-    services.xserver.desktopManager.gnome.enable = true;
+    services.displayManager.gdm.enable = true;
+    services.desktopManager.gnome.enable = true;
 
     services.gnome.gnome-keyring.enable = true;
     services.gvfs.enable = true;
@@ -61,7 +61,7 @@
       google-fonts
       inconsolata
       liberation_ttf
-      ubuntu_font_family
+      ubuntu-classic
     ];
   };
 }
