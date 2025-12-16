@@ -30,7 +30,7 @@
       xsel
       gnomeExtensions.tophat
       gnomeExtensions.force-quit
-      gnomeExtensions.dock-to-dash
+      gnomeExtensions.dash-to-dock
       gnomeExtensions.hide-activities-button
       gnomeExtensions.places-status-indicator
       gnomeExtensions.tweaks-in-system-menu
