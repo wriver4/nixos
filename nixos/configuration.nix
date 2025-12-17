@@ -45,12 +45,29 @@
 
   environment.systemPackages = with pkgs; [
     appimage-run
-    (inputs.claude-desktop.packages.${pkgs.stdenv.hostPlatform.system}.claude-desktop-with-fhs.overrideAttrs (oldAttrs: {
-      postFixup = (oldAttrs.postFixup or "") + ''
-        wrapProgram $out/bin/claude \
-          --add-flags "--enable-features=WaylandWindowDecorations"
+    (pkgs.symlinkJoin {
+      name = "claude-desktop-wayland";
+      paths = [ inputs.claude-desktop.packages.${pkgs.stdenv.hostPlatform.system}.claude-desktop-with-fhs ];
+      buildInputs = [ pkgs.makeWrapper ];
+      postBuild = ''
+        # Modify the desktop file to add Wayland window decorations
+        # This enables GNOME top bar menu controls (minimize/maximize/close)
+        rm $out/share/applications/claude.desktop
+        cat > $out/share/applications/claude.desktop << EOF
+[Desktop Entry]
+Categories=Office;Utility
+Exec=claude-desktop --enable-features=WaylandWindowDecorations %u
+GenericName=Claude Desktop
+Icon=claude
+MimeType=x-scheme-handler/claude
+Name=Claude
+StartupWMClass=claude
+Terminal=false
+Type=Application
+Version=1.5
+EOF
       '';
-    }))
+    })
   ];
 
   # dynamic linking programs
