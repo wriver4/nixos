@@ -42,10 +42,15 @@
     MemoryMax = "90%";
   };
 
-  # Install via AppImage
+
   environment.systemPackages = with pkgs; [
     appimage-run
-    inputs.claude-desktop.packages.${pkgs.stdenv.hostPlatform.system}.claude-desktop-with-fhs
+    (inputs.claude-desktop.packages.${pkgs.stdenv.hostPlatform.system}.claude-desktop-with-fhs.overrideAttrs (oldAttrs: {
+      postFixup = (oldAttrs.postFixup or "") + ''
+        wrapProgram $out/bin/claude \
+          --add-flags "--enable-features=WaylandWindowDecorations"
+      '';
+    }))
   ];
 
   # dynamic linking programs
