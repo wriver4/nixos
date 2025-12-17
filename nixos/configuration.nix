@@ -8,14 +8,8 @@
       config = config.nixpkgs.config;
     };
   };
-  /*
-  inputs = {
-    # claude-desktop.packages.${system}.claude-desktop
-    claude-desktop.packages.${system}.claude-desktop-with-fhs
-  };
-*/
+ 
   nix.settings = {
-   # download-buffer-size = 524288000; # 500 MiB
     download-buffer-size = 1048576000; # 1000 MiB
   };
 
@@ -51,6 +45,7 @@
   # Install via AppImage
   environment.systemPackages = with pkgs; [
     appimage-run
+    inputs.claude-desktop.packages.${pkgs.stdenv.hostPlatform.system}.claude-desktop-with-fhs
   ];
 
   # dynamic linking programs

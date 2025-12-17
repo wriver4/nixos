@@ -7,13 +7,13 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     # Claude Desktop
-    #flake-utils.url = "github:numtide/flake-utils";
-    #claude-desktop.url = "github:k3d3/claude-desktop-linux-flake";
-    #claude-desktop.inputs.nixpkgs.follows = "nixpkgs";
-    #claude-desktop.inputs.flake-utils.follows = "flake-utils";
+    flake-utils.url = "github:numtide/flake-utils";
+    claude-desktop.url = "github:k3d3/claude-desktop-linux-flake";
+    claude-desktop.inputs.nixpkgs.follows = "nixpkgs";
+    claude-desktop.inputs.flake-utils.follows = "flake-utils";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, ... }@inputs: {
+  outputs = { self, nixpkgs, nixpkgs-unstable, claude-desktop, ... }@inputs: {
     # NixOS configuration matching the system hostname
     nixosConfigurations.king = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
