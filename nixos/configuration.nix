@@ -8,7 +8,12 @@
       config = config.nixpkgs.config;
     };
   };
-
+  /*
+  inputs = {
+    # claude-desktop.packages.${system}.claude-desktop
+    claude-desktop.packages.${system}.claude-desktop-with-fhs
+  };
+*/
   nix.settings = {
    # download-buffer-size = 524288000; # 500 MiB
     download-buffer-size = 1048576000; # 1000 MiB
