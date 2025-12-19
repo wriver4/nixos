@@ -4,7 +4,7 @@
   config = {
     environment.systemPackages = with pkgs; [
       #angryipscanner
-      #zmap
+      zmap
       #netscanner
       #iperf3d
       #netbird-ui

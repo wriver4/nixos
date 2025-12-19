@@ -8,6 +8,7 @@
       dnsutils  # `dig` + `nslookup`
       aria2 # A lightweight multi-protocol & multi-source command-line download utility
       socat # replacement of openbsd-netcat
+      nmap
     ];
   };
 }
