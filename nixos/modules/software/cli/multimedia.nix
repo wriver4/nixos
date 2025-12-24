@@ -7,6 +7,7 @@
       clamav # Antivirus engine for detecting trojans, viruses, malware & other malicious threats
       # clamsmtp # A lightweight SMTP filter for ClamAV
       sshfs
+      gpu-screen-recorder
     ];
   };
 }
