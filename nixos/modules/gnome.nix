@@ -7,9 +7,7 @@
 
     services.displayManager.gdm.enable = true;
     services.desktopManager.gnome.enable = true;
-    services.desktopManager.gnome.sessionPath = with pkgs; [
-      gnomeExtensions.desktop-icons-ng-ding
-    ];
+
     services.gnome.gnome-keyring.enable = true;
     services.gvfs.enable = true;
 
@@ -19,7 +17,7 @@
       terminal = "terminator";
     };
 
-    environment.systemPackages = with pkgs; [ 
+    environment.systemPackages = with pkgs; [
       brasero
       gnome-builder
       gnome-usage
