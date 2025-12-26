@@ -7,6 +7,12 @@
 
     services.displayManager.gdm.enable = true;
     services.desktopManager.gnome.enable = true;
+    services.xserver.desktopManager.gnome.extraGSettingsOverridePackages = with pkgs; [
+      nautilus
+      #gnome.mutter # should not be needed
+      #gtk4 # should not be needed
+    ];
+
 
     services.gnome.gnome-keyring.enable = true;
     services.gvfs.enable = true;
@@ -34,6 +40,7 @@
       gnomeExtensions.hide-activities-button
       gnomeExtensions.places-status-indicator
       gnomeExtensions.tweaks-in-system-menu
+      gnomeExtensions.gtk4-desktop-icons-ng-ding
       nautilus-python
       nautilus-open-any-terminal
     ];

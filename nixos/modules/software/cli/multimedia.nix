@@ -8,6 +8,10 @@
       # clamsmtp # A lightweight SMTP filter for ClamAV
       sshfs
       gpu-screen-recorder
+      # Support for GTk-4 desktop extension
+      imagemagick # A software suite to create, edit, compose, or convert bitmap images
+      gjs
+      gdk-pixbuf
     ];
   };
 }

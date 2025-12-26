@@ -85,6 +85,7 @@ config = {
     nodejs_24 # Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine
   ];
 
+
   services.cockpit.settings.WebService.Origins = lib.mkForce "http://localhost:9090 https://localhost:9090";
   services.cockpit = {
     enable = true;
