@@ -7,7 +7,7 @@
 
     services.displayManager.gdm.enable = true;
     services.desktopManager.gnome.enable = true;
-    services.xserver.desktopManager.gnome.extraGSettingsOverridePackages = with pkgs; [
+    services.desktopManager.gnome.extraGSettingsOverridePackages = with pkgs; [
       nautilus
       #gnome.mutter # should not be needed
       #gtk4 # should not be needed
@@ -34,6 +34,7 @@
       wl-clipboard-x11
       xclip
       xsel
+      gnome-extension-manager
       gnomeExtensions.tophat
       gnomeExtensions.force-quit
       gnomeExtensions.dash-to-dock

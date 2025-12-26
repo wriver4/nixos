@@ -9,8 +9,8 @@
       simplescreenrecorder
       krita
       gimp
-      gpustat
-      gpu-screen-recorder-gtk
+      # gpustat
+      # gpu-screen-recorder-gtk
       # gpu-screen-recorder-ui #replacement for gtk not packaged yet
       imagemagick # image manipulation
       cobang  # qrcode scanner
