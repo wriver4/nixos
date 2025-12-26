@@ -43,7 +43,7 @@
       gnomeExtensions.hide-activities-button
       gnomeExtensions.places-status-indicator
       gnomeExtensions.tweaks-in-system-menu
-      gnomeExtensions.ding
+      gnomeExtensions.desktop-icons-ng-ding
       nautilus-python
       nautilus-open-any-terminal
     ];
