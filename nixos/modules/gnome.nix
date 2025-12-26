@@ -12,7 +12,9 @@
       #gnome.mutter # should not be needed
       gtk4 # should not be needed
     ];
-
+    system.activationScripts.gnomeSchemas = ''
+      ${pkgs.glib}/bin/glib-compile-schemas ${pkgs.gnomeExtensions.desktop-icons-ng-ding}/share/glib-2.0/schemas
+    '';
 
     services.gnome.gnome-keyring.enable = true;
     services.gvfs.enable = true;
