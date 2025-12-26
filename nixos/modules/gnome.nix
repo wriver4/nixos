@@ -10,7 +10,7 @@
     services.desktopManager.gnome.extraGSettingsOverridePackages = with pkgs; [
       nautilus
       #gnome.mutter # should not be needed
-      #gtk4 # should not be needed
+      gtk4 # should not be needed
     ];
 
 
