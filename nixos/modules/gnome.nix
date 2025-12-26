@@ -7,15 +7,9 @@
 
     services.displayManager.gdm.enable = true;
     services.desktopManager.gnome.enable = true;
-    /*services.desktopManager.gnome.extraGSettingsOverridePackages = with pkgs; [
-      nautilus
-      #gnome.mutter # should not be needed
-      gtk4 # should not be needed
-    ];*/
-    system.activationScripts.gnomeSchemas = ''
-      ${pkgs.glib}/bin/glib-compile-schemas ${pkgs.gnomeExtensions.desktop-icons-ng-ding}/share/glib-2.0/schemas
-    '';
-
+    services.desktopManager.gnome.sessionPath = with pkgs; [
+      gnomeExtensions.desktop-icons-ng-ding
+    ];
     services.gnome.gnome-keyring.enable = true;
     services.gvfs.enable = true;
 
@@ -43,7 +37,6 @@
       gnomeExtensions.hide-activities-button
       gnomeExtensions.places-status-indicator
       gnomeExtensions.tweaks-in-system-menu
-      gnomeExtensions.desktop-icons-ng-ding
       nautilus-python
       nautilus-open-any-terminal
     ];
