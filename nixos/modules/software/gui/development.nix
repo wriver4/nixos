@@ -35,7 +35,7 @@ in
       unstable.n8n
       n8nDesktopItem
       playwright-test
-      jetbrains.pycharm-community
+      jetbrains.pycharm-oss
       jetbrains-toolbox
       android-studio
       eclipses.eclipse-jee
