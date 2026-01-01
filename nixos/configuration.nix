@@ -98,7 +98,12 @@ EOF
     wayland
     libGL
     libglvnd
+    libgbm
   ];
+
+  environment.sessionVariables.ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+  environment.variables.ELECTRON_RUN_AS_NODE = lib.mkForce "";
+
 
   # Ensure proper desktop integration
   xdg = {
