@@ -72,6 +72,33 @@ EOF
 
   # dynamic linking programs
   programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    glib
+    nss
+    nspr
+    dbus
+    atk
+    cups
+    libdrm
+    gtk3
+    pango
+    cairo
+    xorg.libX11
+    xorg.libXcomposite
+    xorg.libXdamage
+    xorg.libXext
+    xorg.libXfixes
+    xorg.libXrandr
+    mesa
+    expat
+    xorg.libxcb
+    libxkbcommon
+    alsa-lib
+    # Wayland
+    wayland
+    libGL
+    libglvnd
+  ];
 
   # Ensure proper desktop integration
   xdg = {

@@ -31,6 +31,7 @@ in
       postman
       # d2
       # lunacy
+      electron
       uv
       unstable.n8n
       n8nDesktopItem

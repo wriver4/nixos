@@ -7,7 +7,6 @@
       python3 # A high-level programming language
       gcc-unwrapped # The GNU Compiler Collection - C and C++ frontends
       gnumake # GNU version of 'make' utility
-
       #formatters
       nixpkgs-fmt # current official style use nixpkgs-fmt --check file.nix
       nixfmt-rfc-style # new official style use nixfmt --check file.nix
