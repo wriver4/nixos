@@ -37,7 +37,7 @@
       gnomeExtensions.places-status-indicator
       gnomeExtensions.tweaks-in-system-menu
       gnomeExtensions.rdp-and-ssh-connect
-      gnomeExtensions.remmina-search-provider
+      unstable.gnomeExtensions.remmina-search-provider
       gnomeExtensions.appindicator-support
       gnomeExtensions.no-sound-indicator
       gnomeExtensions.show-desktop-icons
