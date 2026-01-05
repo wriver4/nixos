@@ -28,6 +28,7 @@
       wl-clipboard-x11
       xclip
       xsel
+      #extensions
       gnome-extension-manager
       gnomeExtensions.tophat
       gnomeExtensions.force-quit
@@ -35,6 +36,12 @@
       gnomeExtensions.hide-activities-button
       gnomeExtensions.places-status-indicator
       gnomeExtensions.tweaks-in-system-menu
+      gnomeExtensions.rdp-and-ssh-connect
+      gnomeExtensions.remmina-search-provider
+      gnomeExtensions.appindicator-support
+      gnomeExtensions.no-sound-indicator
+      gnomeExtensions.show-desktop-icons
+      gnomeExtensions.window-list
       nautilus-python
       nautilus-open-any-terminal
     ];

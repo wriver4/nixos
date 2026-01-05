@@ -5,7 +5,9 @@
     environment.systemPackages = with pkgs; [
       thunderbird
       unstable.nextcloud-talk-desktop
+      #remote desktops
       unstable.anydesk
+      remmina
       #viber
       #teamspeak3client
 
