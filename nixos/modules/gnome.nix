@@ -38,10 +38,6 @@
       gnomeExtensions.tweaks-in-system-menu
       gnomeExtensions.rdp-and-ssh-connect
       unstable.gnomeExtensions.remmina-search-provider
-      gnomeExtensions.appindicator-support
-      gnomeExtensions.no-sound-indicator
-      gnomeExtensions.show-desktop-icons
-      gnomeExtensions.window-list
       nautilus-python
       nautilus-open-any-terminal
     ];
