@@ -36,8 +36,6 @@
       gnomeExtensions.hide-activities-button
       gnomeExtensions.places-status-indicator
       gnomeExtensions.tweaks-in-system-menu
-      gnomeExtensions.rdp-and-ssh-connect
-      unstable.gnomeExtensions.remmina-search-provider
       nautilus-python
       nautilus-open-any-terminal
     ];
