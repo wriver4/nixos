@@ -1,7 +1,5 @@
 { config, pkgs, lib, ... }:
 
-
-
 {
   config = {
 
@@ -29,7 +27,6 @@
       xclip
       xsel
       #extensions
-      gnome-extension-manager
       gnomeExtensions.tophat
       gnomeExtensions.force-quit
       gnomeExtensions.dash-to-dock
