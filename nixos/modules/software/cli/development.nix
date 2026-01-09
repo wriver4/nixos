@@ -16,7 +16,6 @@
       #
       #git
       gh # GitHub CLI (gh) is the official command line tool for GitHub.
-      git-delta # Git delta provides a diff view in your terminal
     ];
     # required by nixd
     #nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
