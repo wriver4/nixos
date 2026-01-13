@@ -9,6 +9,7 @@
       marktext
       unstable.kdePackages.ghostwriter # markdown editor
       #stirling-pdf
+      zettlr
     ];
   };
 }
