@@ -7,7 +7,7 @@
       hunspell # spell checker for libreoffice
       geany
       marktext
-      kdePackages.ghostwriter # markdown editor
+      unstable.kdePackages.ghostwriter # markdown editor
       #stirling-pdf
     ];
   };
