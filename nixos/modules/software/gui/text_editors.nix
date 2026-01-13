@@ -6,7 +6,7 @@
       libreoffice-fresh
       hunspell # spell checker for libreoffice
       geany
-      marktext
+      unstable.marktext
       unstable.kdePackages.ghostwriter # markdown editor
       #stirling-pdf
       zettlr
