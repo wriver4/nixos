@@ -6,7 +6,7 @@
       thunderbird
       unstable.nextcloud-talk-desktop
       #remote desktops
-      unstable.anydesk
+      # unstable.anydesk #acting funky
       remmina
       #viber
       #teamspeak3client

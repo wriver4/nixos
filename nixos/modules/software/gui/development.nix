@@ -34,13 +34,16 @@ in
       electron
       uv
       unstable.n8n
-      n8nDesktopItem
+      # n8nDesktopItem #actting funky
       playwright-test
       jetbrains.pycharm-oss
       jetbrains-toolbox
       android-studio
-      eclipses.eclipse-jee
+      # eclipses.eclipse-jee
       docker-compose
+      javaPackages.compiler.temurin-bin.jre-25
+      #or
+      # javaPackages.compiler.openjdk25
     ];
   };
 }
