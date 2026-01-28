@@ -35,7 +35,6 @@
       gnomeExtensions.tweaks-in-system-menu
       nautilus-python
       nautilus-open-any-terminal
-      epiphany # web browser
     ];
     #exclude some Gnome Packages
     environment.gnome.excludePackages = with pkgs;[
@@ -45,6 +44,7 @@
       gnome-weather
       gnome-tour
       gnome-contacts
+      epiphany # web browser
     ];
 
     #fontDir.enable = true;
