@@ -1,14 +1,4 @@
 { config, pkgs, ... }:
-let
-  n8nDesktopItem = pkgs.makeDesktopItem {
-    name = "n8n-launcher";
-    desktopName = "n8n Workflow Automation";
-    exec = "${pkgs.n8n}/bin/n8n"; # Ensure n8n is available in pkgs
-    icon = "n8n";
-    type = "Application";
-    categories = [ "Development" "Utility" ];
-  };
-in
 {
   config = {
     environment.systemPackages = with pkgs; [
@@ -33,8 +23,6 @@ in
       # lunacy
       electron
       uv
-      unstable.n8n
-      # n8nDesktopItem #actting funky
       playwright-test
       jetbrains.pycharm-oss
       jetbrains-toolbox

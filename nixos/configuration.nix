@@ -28,6 +28,7 @@
     ./modules/services/servers.nix
     ./modules/services/php.nix
     ./modules/services/webserver.nix
+    ./modules/services/n8n.nix
     ./modules/virtualization.nix
     ./modules/altpkgmgr.nix
     ./modules/software/gui
