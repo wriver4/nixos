@@ -1,12 +1,18 @@
 { config, pkgs, lib, ... }:
 
 let
+  # n8n icon
+  n8nIcon = pkgs.fetchurl {
+    url = "https://raw.githubusercontent.com/n8n-io/n8n/master/assets/n8n-logo.png";
+    sha256 = "sha256-X9QfKy4AJrsg6CMlnmq0HuVmsa9She1B1LKoL9rDNBo=";
+  };
+
   # Desktop item to open n8n in Epiphany as a web app
   n8nWebApp = pkgs.makeDesktopItem {
     name = "n8n";
     desktopName = "n8n Workflow Automation";
-    exec = "${pkgs.epiphany}/bin/epiphany --new-window --application-mode http://localhost:5678";
-    icon = "n8n";
+    exec = "${pkgs.xdg-utils}/bin/xdg-open http://localhost:5678";
+    icon = n8nIcon;
     type = "Application";
     categories = [ "Development" "Utility" "Network" ];
     comment = "n8n workflow automation (web app)";
