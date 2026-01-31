@@ -2,6 +2,12 @@
 
 {
   config = {
+    # Protect AnyDesk daemon from being OOM killed
+    systemd.services.anydesk.serviceConfig = {
+      OOMScoreAdjust = -500;
+      MemoryHigh = "infinity";
+    };
+
     environment.systemPackages = with pkgs; [
       # AnyDesk remote desktop (package includes its own systemd service)
       anydesk
