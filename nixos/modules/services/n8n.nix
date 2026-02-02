@@ -12,7 +12,7 @@ let
     name = "n8n-start";
     desktopName = "Start n8n";
     exec = "${pkgs.polkit}/bin/pkexec ${pkgs.systemd}/bin/systemctl start n8n";
-    icon = "${n8nIcon}";
+    icon = "media-playback-start";
     type = "Application";
     categories = [ "Development" "Utility" "Network" ];
     comment = "Start n8n workflow automation service";
@@ -23,7 +23,7 @@ let
     name = "n8n-stop";
     desktopName = "Stop n8n";
     exec = "${pkgs.polkit}/bin/pkexec ${pkgs.systemd}/bin/systemctl stop n8n";
-    icon = "${n8nIcon}";
+    icon = "media-playback-stop";
     type = "Application";
     categories = [ "Development" "Utility" "Network" ];
     comment = "Stop n8n workflow automation service";
