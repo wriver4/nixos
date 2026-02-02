@@ -9,6 +9,7 @@
       simplescreenrecorder
       krita
       gimp
+      unstable.inkscape-with-extensions
       # gpustat
       # gpu-screen-recorder-gtk
       # gpu-screen-recorder-ui #replacement for gtk not packaged yet
