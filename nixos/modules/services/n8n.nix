@@ -11,7 +11,7 @@ let
   n8nStart = pkgs.makeDesktopItem {
     name = "n8n-start";
     desktopName = "Start n8n";
-    exec = "${pkgs.polkit}/bin/pkexec ${pkgs.systemd}/bin/systemctl start n8n";
+    exec = "/run/wrappers/bin/pkexec ${pkgs.systemd}/bin/systemctl start n8n";
     icon = "media-playback-start";
     type = "Application";
     categories = [ "Development" "Utility" "Network" ];
@@ -22,7 +22,7 @@ let
   n8nStop = pkgs.makeDesktopItem {
     name = "n8n-stop";
     desktopName = "Stop n8n";
-    exec = "${pkgs.polkit}/bin/pkexec ${pkgs.systemd}/bin/systemctl stop n8n";
+    exec = "/run/wrappers/bin/pkexec ${pkgs.systemd}/bin/systemctl stop n8n";
     icon = "media-playback-stop";
     type = "Application";
     categories = [ "Development" "Utility" "Network" ];
