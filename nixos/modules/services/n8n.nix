@@ -7,15 +7,26 @@ let
     sha256 = "sha256-X9QfKy4AJrsg6CMlnmq0HuVmsa9She1B1LKoL9rDNBo=";
   };
 
-  # Desktop item to open n8n in Epiphany as a web app
-  n8nWebApp = pkgs.makeDesktopItem {
-    name = "n8n";
-    desktopName = "n8n Workflow Automation";
-    exec = "${pkgs.xdg-utils}/bin/xdg-open http://localhost:5678";
+  # Desktop item to start n8n service
+  n8nStart = pkgs.makeDesktopItem {
+    name = "n8n-start";
+    desktopName = "Start n8n";
+    exec = "${pkgs.polkit}/bin/pkexec ${pkgs.systemd}/bin/systemctl start n8n";
     icon = n8nIcon;
     type = "Application";
     categories = [ "Development" "Utility" "Network" ];
-    comment = "n8n workflow automation (web app)";
+    comment = "Start n8n workflow automation service";
+  };
+
+  # Desktop item to stop n8n service
+  n8nStop = pkgs.makeDesktopItem {
+    name = "n8n-stop";
+    desktopName = "Stop n8n";
+    exec = "${pkgs.polkit}/bin/pkexec ${pkgs.systemd}/bin/systemctl stop n8n";
+    icon = n8nIcon;
+    type = "Application";
+    categories = [ "Development" "Utility" "Network" ];
+    comment = "Stop n8n workflow automation service";
   };
 in
 {
@@ -61,8 +72,8 @@ in
       };
     };
 
-    # Desktop launcher (opens in Epiphany app mode)
-    environment.systemPackages = [ n8nWebApp ];
+    # Desktop launchers
+    environment.systemPackages = [ n8nStart n8nStop ];
 
     # Uncomment to allow access from other machines:
     # networking.firewall.allowedTCPPorts = [ 5678 ];
