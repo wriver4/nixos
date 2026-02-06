@@ -132,41 +132,83 @@ let
     { port = 5678; label = "n8n"; desc = "Workflow Automation"; }
   ];
 
-  allSiteLinks = lib.concatStringsSep "\n" (
-    (map (site: ''<li><a href="http://${site}">${site}</a></li>'') sites) ++
-    (map (site: ''<li><a href="http://${site}">${site}</a> <span class="tag react">React</span></li>'') reactSites) ++
-    (map (s: ''<li><a href="http://${s.name}">${s.label}</a> <span class="tag service">${s.name}</span></li>'') serviceSites) ++
-    (map (s: ''<li><a href="http://localhost:${toString s.port}">${s.label}</a> <span class="tag localhost">:${toString s.port}</span> <span class="tag service">${s.desc}</span></li>'') localhostServices)
-  );
+  # Site links — PHP sites in green (enabled), React in purple, services/localhost in default black
+  phpLinks = map (site: ''<li><a class="enabled" href="http://${site}" target="_blank">${site}</a></li>'') sites;
+  reactLinks = map (site: ''<li><a style="color:purple;" href="http://${site}" target="_blank">${site}</a></li>'') reactSites;
+  serviceLinks = map (s: ''<li><a style="color:purple;" href="http://${s.name}" target="_blank">${s.label} (${s.name})</a></li>'') serviceSites;
+  localhostLinks = map (s: ''<li><a style="color:red;" href="http://localhost:${toString s.port}" target="_blank">${s.label} (:${toString s.port})</a></li>'') localhostServices;
+  allLinks = phpLinks ++ reactLinks ++ serviceLinks ++ localhostLinks;
+
+  # Split links into two columns of 12
+  col1Links = lib.take 12 allLinks;
+  col2Links = lib.drop 12 allLinks;
 
   dashboardHtml = pkgs.writeText "dashboard.html" ''
     <!DOCTYPE html>
-    <html>
+    <html lang="en">
     <head>
-      <title>Dev Server Dashboard</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Www Sub Domains by Name</title>
       <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; background: #1a1a2e; color: #e0e0e0; }
-        h1 { color: #00d4ff; border-bottom: 2px solid #00d4ff; padding-bottom: 10px; }
-        h2 { color: #7b68ee; margin-top: 30px; }
-        ul { list-style: none; padding: 0; }
-        li { padding: 8px 12px; margin: 4px 0; background: #16213e; border-radius: 6px; }
-        li:hover { background: #1a2747; }
-        a { color: #00d4ff; text-decoration: none; font-size: 1.1em; }
-        a:hover { text-decoration: underline; }
-        .tag { font-size: 0.75em; padding: 2px 8px; border-radius: 10px; margin-left: 8px; }
-        .tag.react { background: #61dafb22; color: #61dafb; border: 1px solid #61dafb55; }
-        .tag.service { background: #7b68ee22; color: #7b68ee; border: 1px solid #7b68ee55; }
-        .tag.localhost { background: #ff634722; color: #ff6347; border: 1px solid #ff634755; }
-        .info { color: #888; font-size: 0.9em; margin-top: 30px; }
+        html, body { height: 100%; font-family: georgia; }
+        body { display: flex; flex-direction: column; background: #d3d3d3; margin: 10px auto; }
+        a { text-decoration: none; color: #000000; }
+        #wrap { flex: 1 0 auto; width: 960px; margin: 10px auto; }
+        #main { width: 100%; overflow: auto; padding-bottom: 10px; }
+        #header { width: 100%; margin: 10px auto; text-align: center; }
+        #content { width: 100%; margin: 0 auto; }
+        h1, h2, ul { clear: both; }
+        ul.sites { margin: 0 auto; padding: 0; }
+        ul.sites li:hover { background-color: #FFFFFF; }
+        ul.sites li { padding: 10px; background-color: #A9A9A9; font-size: 24px; color: #ffffff; line-height: 1; width: 95%; margin-bottom: 1px; list-style: none; }
+        .column-a, .column-b { margin: 0; padding: 0; border: 0; float: left; min-height: 1px; }
+        .container .column-a, .container .column-b { width: 50%; }
+        .container .column-a { clear: left; }
+        .enabled { color: green !important; }
+        .disabled { color: red !important; }
+        .footer { display: inline-flex; }
+        .buttons { font-size: 1.5em; margin: 10px; }
+        .buttons input { float: right; font-size: .75em; margin: 10px; }
+        .legend { font-size: 1.5em; margin: 10px; }
       </style>
     </head>
     <body>
-      <h1>Dev Server Dashboard</h1>
-      <h2>Sites</h2>
-      <ul>
-        ${allSiteLinks}
-      </ul>
-      <p class="info">king.local &mdash; ${toString (builtins.length sites)} PHP sites, ${toString (builtins.length reactSites)} React sites, ${toString (builtins.length serviceSites)} services</p>
+      <div id="wrap">
+        <div id="header">
+          <h1>Www Sub Domains by Name</h1>
+          <div class="buttons">
+            <form action="http://phpmyadmin.local" target="_blank" style="display:inline;"><input type="submit" value="phpMyAdmin" /></form>
+            <form action="http://pgadmin.local" target="_blank" style="display:inline;"><input type="submit" value="pgAdmin" /></form>
+            <form action="http://oracle.local" target="_blank" style="display:inline;"><input type="submit" value="Oracle" /></form>
+            <form action="http://localhost:5678" target="_blank" style="display:inline;"><input type="submit" value="n8n" /></form>
+          </div>
+        </div>
+        <div class="legend">
+          <span style="color:green;">PHP</span>
+          &emsp;<span style="color:purple;">React / Service</span>
+          &emsp;<span style="color:red;">Localhost</span>
+        </div>
+        <div id="main">
+          <div id="content">
+            <ul class="sites">
+              <div class="container">
+                <div class="column-a">
+                  ${lib.concatStringsSep "\n              " col1Links}
+                </div>
+                <div class="column-b">
+                  ${lib.concatStringsSep "\n              " col2Links}
+                </div>
+              </div>
+            </ul>
+          </div>
+          <div style="clear:both;">
+            <div class="footer">
+              <p>&copy; Copyright by Mark</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </body>
     </html>
   '';
