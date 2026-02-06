@@ -26,5 +26,10 @@ in
   };
 
   # Cockpit Navigator — file browser plugin (45Drives Houston)
-  environment.systemPackages = [ cockpit-navigator ];
+  # Navigator requires: python3, rsync, zip, file, inotify-tools
+  environment.systemPackages = [
+    cockpit-navigator
+    pkgs.file
+    pkgs.inotify-tools
+  ];
 }
