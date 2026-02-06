@@ -31,6 +31,7 @@
     ./modules/services/oracle.nix
     ./modules/services/postfix.nix
     ./modules/services/n8n.nix
+    ./modules/services/cockpit.nix
     ./modules/virtualization.nix
     ./modules/altpkgmgr.nix
     ./modules/software/gui

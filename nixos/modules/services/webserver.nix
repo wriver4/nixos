@@ -138,6 +138,7 @@ let
   # Localhost port services — accessed via localhost:<port> (dashboard buttons + links)
   localhostServices = [
     { port = 5678; label = "n8n"; desc = "Workflow Automation"; }
+    { port = 9090; label = "Cockpit"; desc = "System & Container Management"; }
   ];
 
   # Site links — PHP sites in green (enabled), React in purple
