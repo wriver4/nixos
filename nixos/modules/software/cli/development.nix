@@ -14,6 +14,9 @@
       #nit needed if using vscode use vscode plugin nix-ide
       nixd # nix language server
       #
+      #databases
+      sqlite # SQLite CLI and library
+      #
       #git
       gh # GitHub CLI (gh) is the official command line tool for GitHub.
     ];

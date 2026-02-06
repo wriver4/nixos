@@ -12,7 +12,7 @@
       #mailcatcher
       sqlitebrowser
       dbeaver-bin
-      #pgadmin4
+      pgadmin4
       httrack
       # flatpack-builder
       # unstable.node-red

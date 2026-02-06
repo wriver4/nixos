@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs,  ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   imports =
@@ -19,5 +19,15 @@
   services.mysql = {
   enable = true;
   package = pkgs.mariadb_114;
+  };
+
+  services.postgresql = {
+    enable = true;
+    authentication = lib.mkForce ''
+      # TYPE  DATABASE  USER  ADDRESS     METHOD
+      local   all       all               peer
+      host    all       all   127.0.0.1/32  md5
+      host    all       all   ::1/128       md5
+    '';
   };
 }

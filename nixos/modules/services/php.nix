@@ -1,9 +1,21 @@
 { config, pkgs, lib, inputs, ... }:
 
+let
+  phpWithExtensions = pkgs.php84.withExtensions ({ enabled, all }: enabled ++ [
+    all.mysqli
+    all.mysqlnd
+    all.pdo_mysql
+    all.mbstring
+  ]);
+in
 {
   services.phpfpm.pools.www = {
     user = "www-data";
     group = "www-data";
+    phpPackage = phpWithExtensions;
+    phpOptions = ''
+      sendmail_path = /run/wrappers/bin/sendmail -t -i
+    '';
     settings = {
       "listen" = "/run/phpfpm/www.sock";
       "listen.owner" = "www-data";
@@ -23,7 +35,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    php84
+    phpWithExtensions
     php84Packages.composer
     php84Packages.composer-local-repo-plugin
   ];
