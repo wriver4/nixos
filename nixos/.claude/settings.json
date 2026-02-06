@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(nixos-option:*)",
+      "Bash(nix eval:*)"
+    ]
+  }
+}

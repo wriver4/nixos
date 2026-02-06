@@ -16,7 +16,8 @@
     # Allow mark to manage systemd units without password (for GNOME Systemd Manager extension)
     security.polkit.extraConfig = ''
       polkit.addRule(function(action, subject) {
-        if (action.id == "org.freedesktop.systemd1.manage-units" &&
+        if (action.id == "org.freedesktop.policykit.exec" &&
+            action.lookup("program") == "/run/current-system/sw/bin/systemctl" &&
             subject.user == "mark") {
           return polkit.Result.YES;
         }
