@@ -30,7 +30,7 @@ in
       inet_protocols = "all";
 
       # TLS settings - chain file contains key + cert
-      smtpd_tls_chain_files = "${certDir}/server.pem";
+      smtpd_tls_chain_files = [ "${certDir}/server.pem" ];
       smtpd_tls_security_level = "may";
       smtpd_tls_auth_only = "yes";
       smtpd_tls_loglevel = "1";
