@@ -153,6 +153,7 @@ let
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Localhost Domains and Services</title>
+      <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3L2 15h4v12h8v-8h4v8h8V15h4z' fill='%23666'/%3E%3C/svg%3E" />
       <style>
         html, body { height: 100%; font-family: georgia; }
         body { display: flex; flex-direction: column; background: #d3d3d3; margin: 10px auto; }
@@ -185,6 +186,7 @@ let
             <form action="http://pgadmin.local" target="_blank" style="display:inline;"><input type="submit" value="pgAdmin" style="background:purple;color:white;border:none;cursor:pointer;" /></form>
             <form action="http://oracle.local" target="_blank" style="display:inline;"><input type="submit" value="Oracle" style="background:purple;color:white;border:none;cursor:pointer;" /></form>
             <form action="http://localhost:5678" target="_blank" style="display:inline;"><input type="submit" value="n8n" style="background:red;color:white;border:none;cursor:pointer;" /></form>
+            <form action="http://localhost:9090" target="_blank" style="display:inline;"><input type="submit" value="Cockpit" style="background:red;color:white;border:none;cursor:pointer;" /></form>
           </div>
         </div>
         <div class="legend">
