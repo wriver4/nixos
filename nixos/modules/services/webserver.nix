@@ -141,17 +141,13 @@ let
   reactLinks = map (site: ''<li><a style="color:purple;" href="http://${site}" target="_blank">${site}</a></li>'') reactSites;
   allLinks = phpLinks ++ reactLinks;
 
-  # Split links into two columns of 12
-  col1Links = lib.take 12 allLinks;
-  col2Links = lib.drop 12 allLinks;
-
   dashboardHtml = pkgs.writeText "dashboard.html" ''
     <!DOCTYPE html>
     <html lang="en">
     <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Www Sub Domains by Name</title>
+      <title>Localhost Domains and Services</title>
       <style>
         html, body { height: 100%; font-family: georgia; }
         body { display: flex; flex-direction: column; background: #d3d3d3; margin: 10px auto; }
@@ -161,24 +157,24 @@ let
         #header { width: 100%; margin: 10px auto; text-align: center; }
         #content { width: 100%; margin: 0 auto; }
         h1, h2, ul { clear: both; }
-        ul.sites { margin: 0 auto; padding: 0; }
-        ul.sites li:hover { background-color: #FFFFFF; }
-        ul.sites li { padding: 10px; background-color: #A9A9A9; font-size: 24px; color: #ffffff; line-height: 1; width: 95%; margin-bottom: 1px; list-style: none; }
-        .column-a, .column-b { margin: 0; padding: 0; border: 0; float: left; min-height: 1px; }
-        .container .column-a, .container .column-b { width: 50%; }
-        .container .column-a { clear: left; }
+        ul.pagination { margin: 0 auto; padding: 0; column-count: 2; column-gap: 4px; }
+        ul.pagination li:hover { background-color: #FFFFFF; }
+        ul.pagination li { padding: 10px; background-color: #A9A9A9; font-size: 24px; color: #ffffff; line-height: 1; width: 95%; margin-bottom: 1px; list-style: none; }
         .enabled { color: green !important; }
         .disabled { color: red !important; }
         .footer { display: inline-flex; }
         .buttons { font-size: 1.5em; margin: 10px; }
         .buttons input { float: right; font-size: .75em; margin: 10px; }
         .legend { font-size: 1.5em; margin: 10px; }
+        #pager { text-align: right; padding: 10px; }
+        #pager button { padding: 8px 14px; margin: 2px; font-family: georgia; font-size: 18px; border: none; cursor: pointer; background: #A9A9A9; color: #fff; }
+        #pager button.active { background: #666; color: #000; }
       </style>
     </head>
     <body>
       <div id="wrap">
         <div id="header">
-          <h1>Www Sub Domains by Name</h1>
+          <h1>Localhost Domains and Services</h1>
           <div class="buttons">
             <form action="http://phpmyadmin.local" target="_blank" style="display:inline;"><input type="submit" value="phpMyAdmin" style="background:purple;color:white;border:none;cursor:pointer;" /></form>
             <form action="http://pgadmin.local" target="_blank" style="display:inline;"><input type="submit" value="pgAdmin" style="background:purple;color:white;border:none;cursor:pointer;" /></form>
@@ -192,17 +188,11 @@ let
         </div>
         <div id="main">
           <div id="content">
-            <ul class="sites">
-              <div class="container">
-                <div class="column-a">
-                  ${lib.concatStringsSep "\n              " col1Links}
-                </div>
-                <div class="column-b">
-                  ${lib.concatStringsSep "\n              " col2Links}
-                </div>
-              </div>
+            <ul class="pagination">
+              ${lib.concatStringsSep "\n            " allLinks}
             </ul>
           </div>
+          <div id="pager"></div>
           <div style="clear:both;">
             <div class="footer">
               <p>&copy; Copyright by Mark</p>
@@ -210,6 +200,30 @@ let
           </div>
         </div>
       </div>
+      <script>
+        (function() {
+          var perPage = 24;
+          var items = document.querySelectorAll('ul.pagination li');
+          var pager = document.getElementById('pager');
+          var pages = Math.ceil(items.length / perPage);
+          if (pages <= 1) return;
+          function show(p) {
+            items.forEach(function(li, i) {
+              li.style.display = (i >= p * perPage && i < (p + 1) * perPage) ? '' : 'none';
+            });
+            pager.querySelectorAll('button').forEach(function(b, i) {
+              b.className = i === p ? 'active' : '';
+            });
+          }
+          for (var i = 0; i < pages; i++) {
+            var btn = document.createElement('button');
+            btn.textContent = i + 1;
+            btn.onclick = (function(p) { return function() { show(p); }; })(i);
+            pager.appendChild(btn);
+          }
+          show(0);
+        })();
+      </script>
     </body>
     </html>
   '';
