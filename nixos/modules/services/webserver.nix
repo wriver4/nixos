@@ -203,20 +203,21 @@ let
       <script>
         (function() {
           var perPage = 24;
-          var items = document.querySelectorAll('ul.pagination li');
-          var pager = document.getElementById('pager');
+          var items = document.querySelectorAll("ul.pagination li");
+          var pager = document.getElementById("pager");
           var pages = Math.ceil(items.length / perPage);
           if (pages <= 1) return;
           function show(p) {
             items.forEach(function(li, i) {
-              li.style.display = (i >= p * perPage && i < (p + 1) * perPage) ? '' : 'none';
+              var visible = (i >= p * perPage && i < (p + 1) * perPage);
+              li.style.display = visible ? "" : "none";
             });
-            pager.querySelectorAll('button').forEach(function(b, i) {
-              b.className = i === p ? 'active' : '';
+            pager.querySelectorAll("button").forEach(function(b, i) {
+              b.className = (i === p) ? "active" : "";
             });
           }
           for (var i = 0; i < pages; i++) {
-            var btn = document.createElement('button');
+            var btn = document.createElement("button");
             btn.textContent = i + 1;
             btn.onclick = (function(p) { return function() { show(p); }; })(i);
             pager.appendChild(btn);
