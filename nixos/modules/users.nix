@@ -13,5 +13,14 @@
       ];    
     packages = with pkgs; [];
     };
+    # Allow mark to manage systemd units without password (for GNOME Systemd Manager extension)
+    security.polkit.extraConfig = ''
+      polkit.addRule(function(action, subject) {
+        if (action.id == "org.freedesktop.systemd1.manage-units" &&
+            subject.user == "mark") {
+          return polkit.Result.YES;
+        }
+      });
+    '';
   };
 }
