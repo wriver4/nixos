@@ -156,8 +156,8 @@ in
   };
 
   system.activationScripts.fixWebserverPerms = lib.stringAfter ["users"] ''
-    chmod 0775 /var/www
-    ${lib.concatStringsSep "\n" (map (site: "chmod 0775 /var/www/${site}") (sites ++ reactSites))}
+    chmod 0775 /var/www 2>/dev/null || true
+    ${lib.concatStringsSep "\n" (map (site: "chmod 0775 /var/www/${site} 2>/dev/null || true") (sites ++ reactSites))}
     ${lib.concatStringsSep "\n" (map (site: "chmod 0664 /var/www/${site}/index.php 2>/dev/null || true") sites)}
   '';
 }

@@ -1,7 +1,8 @@
 { config, pkgs, lib, ... }:
 
 let
-  certDir = "/etc/postfix/ssl";
+  certDir = "/var/lib/postfix/ssl";
+  mapDir = "/var/lib/postfix/maps";
 in
 {
   services.postfix = {
@@ -10,7 +11,6 @@ in
     domain = "local";
     origin = "local";
     destination = [ "king.local" "localhost.local" "localhost" "local" ];
-    networks = [ "127.0.0.0/8" "[::1]/128" ];
 
     # Enable submission (587) and SMTPS (465)
     enableSubmission = true;
@@ -28,6 +28,7 @@ in
       # Full Postfix with all protocols
       inet_interfaces = "all";
       inet_protocols = "all";
+      mynetworks = [ "127.0.0.0/8" "[::1]/128" ];
 
       # TLS settings - chain file contains key + cert
       smtpd_tls_chain_files = [ "${certDir}/server.pem" ];
@@ -47,8 +48,8 @@ in
 
       # Sender restrictions using blacklist maps
       smtpd_sender_restrictions = lib.concatStringsSep ", " [
-        "check_sender_access hash:/etc/postfix/sender_blacklist"
-        "check_sender_access hash:/etc/postfix/discard_senders"
+        "check_sender_access hash:${mapDir}/sender_blacklist"
+        "check_sender_access hash:${mapDir}/discard_senders"
         "permit"
       ];
 
@@ -92,25 +93,24 @@ in
 
   # Generate self-signed TLS cert and create empty blacklist maps
   system.activationScripts.postfixSetup = lib.stringAfter [ "etc" ] ''
-    mkdir -p ${certDir}
+    mkdir -p ${certDir} ${mapDir}
     if [ ! -f ${certDir}/server.pem ]; then
       ${pkgs.openssl}/bin/openssl req -new -x509 -days 3650 -nodes \
         -out ${certDir}/server.crt \
         -keyout ${certDir}/server.key \
         -subj "/CN=king.local"
-      # Combined key+cert for Postfix smtpd_tls_chain_files
       cat ${certDir}/server.key ${certDir}/server.crt > ${certDir}/server.pem
       chmod 600 ${certDir}/server.key ${certDir}/server.pem
       chmod 644 ${certDir}/server.crt
     fi
-    if [ ! -f /etc/postfix/sender_blacklist ]; then
-      echo "# sender_blacklist - email addresses to REJECT" > /etc/postfix/sender_blacklist
+    if [ ! -f ${mapDir}/sender_blacklist ]; then
+      echo "# sender_blacklist - email addresses to REJECT" > ${mapDir}/sender_blacklist
     fi
-    if [ ! -f /etc/postfix/discard_senders ]; then
-      echo "# discard_senders - domains to DISCARD" > /etc/postfix/discard_senders
+    if [ ! -f ${mapDir}/discard_senders ]; then
+      echo "# discard_senders - domains to DISCARD" > ${mapDir}/discard_senders
     fi
-    ${pkgs.postfix}/bin/postmap /etc/postfix/sender_blacklist
-    ${pkgs.postfix}/bin/postmap /etc/postfix/discard_senders
+    ${pkgs.postfix}/bin/postmap ${mapDir}/sender_blacklist
+    ${pkgs.postfix}/bin/postmap ${mapDir}/discard_senders
   '';
 
   environment.systemPackages = with pkgs; [
