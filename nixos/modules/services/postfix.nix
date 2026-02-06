@@ -11,8 +11,6 @@ in
     origin = "local";
     destination = [ "king.local" "localhost.local" "localhost" "local" ];
     networks = [ "127.0.0.0/8" "[::1]/128" ];
-    sslCert = "${certDir}/server.crt";
-    sslKey = "${certDir}/server.key";
 
     # Enable submission (587) and SMTPS (465)
     enableSubmission = true;
@@ -31,7 +29,8 @@ in
       inet_interfaces = "all";
       inet_protocols = "all";
 
-      # TLS settings
+      # TLS settings - chain file contains key + cert
+      smtpd_tls_chain_files = "${certDir}/server.pem";
       smtpd_tls_security_level = "may";
       smtpd_tls_auth_only = "yes";
       smtpd_tls_loglevel = "1";
@@ -94,12 +93,14 @@ in
   # Generate self-signed TLS cert and create empty blacklist maps
   system.activationScripts.postfixSetup = lib.stringAfter [ "etc" ] ''
     mkdir -p ${certDir}
-    if [ ! -f ${certDir}/server.key ]; then
+    if [ ! -f ${certDir}/server.pem ]; then
       ${pkgs.openssl}/bin/openssl req -new -x509 -days 3650 -nodes \
         -out ${certDir}/server.crt \
         -keyout ${certDir}/server.key \
         -subj "/CN=king.local"
-      chmod 600 ${certDir}/server.key
+      # Combined key+cert for Postfix smtpd_tls_chain_files
+      cat ${certDir}/server.key ${certDir}/server.crt > ${certDir}/server.pem
+      chmod 600 ${certDir}/server.key ${certDir}/server.pem
       chmod 644 ${certDir}/server.crt
     fi
     if [ ! -f /etc/postfix/sender_blacklist ]; then
