@@ -1,27 +1,29 @@
 { config, pkgs, lib, ... }:
 
 let
+  # PHP sites — served from /var/www/<name> with PHP-FPM (add new entries alphabetically)
   sites = [
-    "site1.local"
-    "site2.local"
     "dir.local"
-    "wpduplicate.local"
-    "wooduplicate.local"
-    "wgwebsitenew.local"
-    "wgwebsiteold.local"
-    "qepton.local"
     "newfront.local"
     "oldfront.local"
-    "wgrndadmin.local"
-    "wgadmin.local"
-    "wgsatlient.local"
-    "wgwificlient.local"
-    "wgcrmxbesh.local"
-    "wgcrm.local"
-    "wbcrm.local"
     "postfixmanager.local"
+    "qepton.local"
+    "site1.local"
+    "site2.local"
+    "wbcrm.local"
+    "wgadmin.local"
+    "wgcrm.local"
+    "wgcrmxbesh.local"
+    "wgrndadmin.local"
+    "wgsatlient.local"
+    "wgwebsitenew.local"
+    "wgwebsiteold.local"
+    "wgwificlient.local"
+    "wooduplicate.local"
+    "wpduplicate.local"
   ];
 
+  # React sites — served from /var/www/<name> with tryFiles fallback to index.html
   reactSites = [
     "wgxbesh.local"
   ];
@@ -122,22 +124,22 @@ let
     };
   };
 
+  # Service sites — proxied via .local domains (dashboard buttons + links)
   serviceSites = [
-    { name = "phpmyadmin.local"; label = "phpMyAdmin"; }
-    { name = "pgadmin.local"; label = "pgAdmin"; }
     { name = "oracle.local"; label = "Oracle XE"; }
+    { name = "pgadmin.local"; label = "pgAdmin"; }
+    { name = "phpmyadmin.local"; label = "phpMyAdmin"; }
   ];
 
+  # Localhost port services — accessed via localhost:<port> (dashboard buttons + links)
   localhostServices = [
     { port = 5678; label = "n8n"; desc = "Workflow Automation"; }
   ];
 
-  # Site links — PHP sites in green (enabled), React in purple, services/localhost in default black
+  # Site links — PHP sites in green (enabled), React in purple
   phpLinks = map (site: ''<li><a class="enabled" href="http://${site}" target="_blank">${site}</a></li>'') sites;
   reactLinks = map (site: ''<li><a style="color:purple;" href="http://${site}" target="_blank">${site}</a></li>'') reactSites;
-  serviceLinks = map (s: ''<li><a style="color:purple;" href="http://${s.name}" target="_blank">${s.label} (${s.name})</a></li>'') serviceSites;
-  localhostLinks = map (s: ''<li><a style="color:red;" href="http://localhost:${toString s.port}" target="_blank">${s.label} (:${toString s.port})</a></li>'') localhostServices;
-  allLinks = phpLinks ++ reactLinks ++ serviceLinks ++ localhostLinks;
+  allLinks = phpLinks ++ reactLinks;
 
   # Split links into two columns of 12
   col1Links = lib.take 12 allLinks;
@@ -178,16 +180,15 @@ let
         <div id="header">
           <h1>Www Sub Domains by Name</h1>
           <div class="buttons">
-            <form action="http://phpmyadmin.local" target="_blank" style="display:inline;"><input type="submit" value="phpMyAdmin" /></form>
-            <form action="http://pgadmin.local" target="_blank" style="display:inline;"><input type="submit" value="pgAdmin" /></form>
-            <form action="http://oracle.local" target="_blank" style="display:inline;"><input type="submit" value="Oracle" /></form>
-            <form action="http://localhost:5678" target="_blank" style="display:inline;"><input type="submit" value="n8n" /></form>
+            <form action="http://phpmyadmin.local" target="_blank" style="display:inline;"><input type="submit" value="phpMyAdmin" style="background:purple;color:white;border:none;cursor:pointer;" /></form>
+            <form action="http://pgadmin.local" target="_blank" style="display:inline;"><input type="submit" value="pgAdmin" style="background:purple;color:white;border:none;cursor:pointer;" /></form>
+            <form action="http://oracle.local" target="_blank" style="display:inline;"><input type="submit" value="Oracle" style="background:purple;color:white;border:none;cursor:pointer;" /></form>
+            <form action="http://localhost:5678" target="_blank" style="display:inline;"><input type="submit" value="n8n" style="background:red;color:white;border:none;cursor:pointer;" /></form>
           </div>
         </div>
         <div class="legend">
           <span style="color:green;">PHP</span>
-          &emsp;<span style="color:purple;">React / Service</span>
-          &emsp;<span style="color:red;">Localhost</span>
+          &emsp;<span style="color:purple;">React</span>
         </div>
         <div id="main">
           <div id="content">
