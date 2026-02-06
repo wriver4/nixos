@@ -7,10 +7,6 @@ in
 {
   services.postfix = {
     enable = true;
-    hostname = "king.local";
-    domain = "local";
-    origin = "local";
-    destination = [ "king.local" "localhost.local" "localhost" "local" ];
 
     # Enable submission (587) and SMTPS (465)
     enableSubmission = true;
@@ -24,7 +20,12 @@ in
       milter_macro_daemon_name = "ORIGINATING";
     };
 
-    config = {
+    settings.main = {
+      myhostname = "king.local";
+      mydomain = "local";
+      myorigin = "local";
+      mydestination = [ "king.local" "localhost.local" "localhost" "local" ];
+
       # Full Postfix with all protocols
       inet_interfaces = "all";
       inet_protocols = "all";
@@ -69,7 +70,7 @@ in
 
       # Mailbox
       home_mailbox = "Maildir/";
-    };
+    }; # end settings.main
   };
 
   # Dovecot for SASL auth and IMAP access
