@@ -33,14 +33,15 @@
     # Allow traffic on bridge
     networking.firewall.trustedInterfaces = [ "br-microvm" ];
 
+    # Don't block boot waiting for the bridge (no TAP interfaces until VMs start)
+    systemd.network.wait-online.ignoredInterfaces = [ "br-microvm" ];
+
     # ── MicroVM Definitions ─────────────────────────────────────────
 
     microvm.vms = {
       # Web stack: nginx reverse proxy
       web-nginx = {
         autostart = false;
-        flake = inputs.microvm;
-        updateFlake = "microvm";
         config = { config, pkgs, ... }: {
           microvm = {
             hypervisor = "qemu";
@@ -88,8 +89,6 @@
       # Web stack: Node.js application server
       web-app = {
         autostart = false;
-        flake = inputs.microvm;
-        updateFlake = "microvm";
         config = { config, pkgs, ... }: {
           microvm = {
             hypervisor = "qemu";
@@ -129,8 +128,6 @@
       # Dev environment: Node.js
       dev-node = {
         autostart = false;
-        flake = inputs.microvm;
-        updateFlake = "microvm";
         config = { config, pkgs, ... }: {
           microvm = {
             hypervisor = "qemu";
@@ -169,8 +166,6 @@
       # Dev environment: Python
       dev-python = {
         autostart = false;
-        flake = inputs.microvm;
-        updateFlake = "microvm";
         config = { config, pkgs, ... }: {
           microvm = {
             hypervisor = "qemu";
@@ -212,8 +207,6 @@
       # Service isolation: PostgreSQL
       svc-postgres = {
         autostart = false;
-        flake = inputs.microvm;
-        updateFlake = "microvm";
         config = { config, pkgs, ... }: {
           microvm = {
             hypervisor = "qemu";
