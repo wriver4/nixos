@@ -203,7 +203,7 @@ let
             <form action="http://oracle.local" target="_blank" style="display:inline;"><input type="submit" value="Oracle" style="background:purple;color:white;border:none;cursor:pointer;" /></form>
             <form action="http://localhost:5678" target="_blank" style="display:inline;"><input type="submit" value="n8n" style="background:red;color:white;border:none;cursor:pointer;" /></form>
             <form action="http://localhost:9090" target="_blank" style="display:inline;"><input type="submit" value="Cockpit" style="background:red;color:white;border:none;cursor:pointer;" /></form>
-            <form action="http://microvm.local" target="_blank" style="display:inline;"><input type="submit" value="MicroVM" style="background:teal;color:white;border:none;cursor:pointer;" /></form>
+            <form action="http://localhost:3100" target="_blank" style="display:inline;"><input type="submit" value="MicroVM" style="background:teal;color:white;border:none;cursor:pointer;" /></form>
           </div>
         </div>
         <div class="legend">

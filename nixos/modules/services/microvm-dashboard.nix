@@ -97,9 +97,10 @@ in
       environment = {
         NODE_ENV = "production";
         PORT = "3100";
-        HOST = "127.0.0.1";
+        HOST = "0.0.0.0";
         LOG_LEVEL = "info";
         HOME = "/var/lib/microvm-dashboard";
+        STATIC_DIR = "/var/www/microvm-dashboard";
       };
 
       serviceConfig = {
