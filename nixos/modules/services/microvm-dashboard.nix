@@ -105,12 +105,12 @@ in
 
       serviceConfig = {
         Type = "simple";
-        User = "microvm-dashboard";
-        Group = "microvm-dashboard";
-        ExecStart = "${pkgs.nodejs_24}/bin/node /var/lib/microvm-dashboard/backend/dist/index.js";
+        User = "mark";
+        Group = "users";
+        ExecStart = "${pkgs.nodejs_24}/bin/node /home/mark/Projects/active/microvm-dashboard-project/code/MicroVM-Dashboard-Dev/backend/dist/index.js";
         Restart = "on-failure";
         RestartSec = "10s";
-        WorkingDirectory = "/var/lib/microvm-dashboard";
+        WorkingDirectory = "/home/mark/Projects/active/microvm-dashboard-project/code/MicroVM-Dashboard-Dev/backend";
       };
     };
   };
