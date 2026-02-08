@@ -77,7 +77,7 @@ in
 
     # Sudo rules: allow dashboard user to manage microvm@ units
     security.sudo.extraRules = [{
-      users = [ "microvm-dashboard" ];
+      users = [ "microvm-dashboard" "mark" ];
       commands = [
         { command = "/run/current-system/sw/bin/systemctl start microvm@*"; options = [ "NOPASSWD" ]; }
         { command = "/run/current-system/sw/bin/systemctl stop microvm@*"; options = [ "NOPASSWD" ]; }
