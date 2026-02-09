@@ -13,7 +13,7 @@
       sqlitebrowser
       dbeaver-bin
       pgadmin4
-      (unstable.dbvisualizer.override { jdk = pkgs.jdk21; })
+      (unstable.dbvisualizer.override { openjdk17 = pkgs.openjdk21; })
       httrack
       # flatpack-builder
       # unstable.node-red
