@@ -13,6 +13,7 @@
       sqlitebrowser
       dbeaver-bin
       pgadmin4
+      unstable.dbvisualizer
       httrack
       # flatpack-builder
       # unstable.node-red
