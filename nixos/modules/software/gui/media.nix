@@ -32,6 +32,9 @@ in
 
       # video editing (installed via flatpak)
       lightworksDesktop
+
+      # LaTeX (needed by Zettlr for PDF export via Pandoc/XeLaTeX)
+      texlive.combined.scheme-medium
     ];
   };
 }
