@@ -33,10 +33,10 @@
     # Allow traffic on bridge
     networking.firewall.trustedInterfaces = [ "br-microvm" ];
 
-    # Don't block boot waiting for the bridge (no TAP interfaces until VMs start)
-    systemd.network.wait-online.ignoredInterfaces = [ "br-microvm" ];
-    # Succeed once any interface is online, rather than waiting for all of them
-    systemd.network.wait-online.anyInterface = true;
+    # Networking is handled by NetworkManager, not systemd-networkd.
+    # The only networkd-managed interface (br-microvm) has no carrier until VMs start,
+    # so wait-online will always time out. Disable it.
+    systemd.network.wait-online.enable = false;
 
     # ── MicroVM Definitions ─────────────────────────────────────────
 
