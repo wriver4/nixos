@@ -35,6 +35,8 @@
 
     # Don't block boot waiting for the bridge (no TAP interfaces until VMs start)
     systemd.network.wait-online.ignoredInterfaces = [ "br-microvm" ];
+    # Succeed once any interface is online, rather than waiting for all of them
+    systemd.network.wait-online.anyInterface = true;
 
     # ── MicroVM Definitions ─────────────────────────────────────────
 
