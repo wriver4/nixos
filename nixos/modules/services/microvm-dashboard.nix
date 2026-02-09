@@ -74,9 +74,10 @@ in
     users.groups.microvm-dashboard = {};
 
     # Data + microvms directories
+    # Owned by mark:users to match serviceConfig.User (dev mode runs from source)
     systemd.tmpfiles.rules = [
-      "d /var/lib/microvm-dashboard 0750 microvm-dashboard microvm-dashboard -"
-      "d /var/lib/microvms 0755 microvm-dashboard microvm-dashboard -"
+      "d /var/lib/microvm-dashboard 0750 mark users -"
+      "d /var/lib/microvms 0755 mark users -"
     ];
 
     # Sudo rules: allow dashboard user to manage microvm@ units + provisioning
