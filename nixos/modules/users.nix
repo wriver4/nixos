@@ -31,6 +31,7 @@
           { command = "/run/current-system/sw/bin/cp"; options = [ "NOPASSWD" ]; }
           { command = "/run/current-system/sw/bin/rm"; options = [ "NOPASSWD" ]; }
           { command = "/run/current-system/sw/bin/mkdir"; options = [ "NOPASSWD" ]; }
+          { command = "/run/current-system/sw/bin/chown"; options = [ "NOPASSWD" ]; }
         ];
       }];
   };
