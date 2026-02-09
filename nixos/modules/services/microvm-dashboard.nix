@@ -6,7 +6,7 @@ let
     pname = "microvm-dashboard";
     version = "0.1.0";
 
-    src = /home/mark/Projects/active/microvm-dashboard-project/code/MicroVM-Dashboard-Dev/backend;
+    src = /home/mark/Projects/active/microvm-dashboard-project/code/MicroVM-Dashboard-Dev-Premium/backend;
 
     npmDepsHash = lib.fakeHash;
 
@@ -42,7 +42,7 @@ let
     pname = "microvm-dashboard-frontend";
     version = "0.1.0";
 
-    src = /home/mark/Projects/active/microvm-dashboard-project/code/MicroVM-Dashboard-Dev;
+    src = /home/mark/Projects/active/microvm-dashboard-project/code/MicroVM-Dashboard-Dev-Premium;
 
     npmDepsHash = lib.fakeHash;
 
@@ -58,6 +58,8 @@ let
     '';
   };
 
+  premiumBackendDir = "/home/mark/Projects/active/microvm-dashboard-project/code/MicroVM-Dashboard-Dev-Premium/backend";
+
 in
 {
   config = {
@@ -67,32 +69,44 @@ in
       group = "microvm-dashboard";
       home = "/var/lib/microvm-dashboard";
       createHome = true;
+      extraGroups = [ "kvm" ];
     };
     users.groups.microvm-dashboard = {};
 
-    # Data directory
+    # Data + microvms directories
     systemd.tmpfiles.rules = [
       "d /var/lib/microvm-dashboard 0750 microvm-dashboard microvm-dashboard -"
+      "d /var/lib/microvms 0755 microvm-dashboard microvm-dashboard -"
     ];
 
-    # Sudo rules: allow dashboard user to manage microvm@ units
+    # Sudo rules: allow dashboard user to manage microvm@ units + provisioning
     security.sudo.extraRules = [{
       users = [ "microvm-dashboard" "mark" ];
       commands = [
+        # Existing: manage microvm@ systemd units
         { command = "/run/current-system/sw/bin/systemctl start microvm@*"; options = [ "NOPASSWD" ]; }
         { command = "/run/current-system/sw/bin/systemctl stop microvm@*"; options = [ "NOPASSWD" ]; }
         { command = "/run/current-system/sw/bin/systemctl restart microvm@*"; options = [ "NOPASSWD" ]; }
         { command = "/run/current-system/sw/bin/systemctl is-active microvm@*"; options = [ "NOPASSWD" ]; }
         { command = "/run/current-system/sw/bin/systemctl show microvm@*"; options = [ "NOPASSWD" ]; }
         { command = "/run/current-system/sw/bin/systemctl status microvm@*"; options = [ "NOPASSWD" ]; }
+
+        # Provisioning: microvm CLI for NixOS guests
+        { command = "/run/current-system/sw/bin/microvm *"; options = [ "NOPASSWD" ]; }
+
+        # Provisioning: install cloud VM systemd units + reload
+        { command = "/run/current-system/sw/bin/systemctl daemon-reload"; options = [ "NOPASSWD" ]; }
+        { command = "/run/current-system/sw/bin/cp * /etc/systemd/system/microvm@*.service"; options = [ "NOPASSWD" ]; }
       ];
     }];
 
     # Systemd service
     systemd.services.microvm-dashboard = {
-      description = "MicroVM Dashboard";
+      description = "MicroVM Dashboard (Premium)";
       after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
+
+      path = [ pkgs.cdrkit pkgs.qemu ];
 
       environment = {
         NODE_ENV = "production";
@@ -101,16 +115,30 @@ in
         LOG_LEVEL = "info";
         HOME = "/var/lib/microvm-dashboard";
         STATIC_DIR = "/var/www/microvm-dashboard";
+
+        # Premium features
+        PREMIUM_ENABLED = "true";
+        VM_STORAGE_BACKEND = "json";
+        VM_DATA_DIR = "/var/lib/microvm-dashboard";
+
+        # Provisioning
+        PROVISIONING_ENABLED = "true";
+        MICROVMS_DIR = "/var/lib/microvms";
+        BRIDGE_GATEWAY = "10.10.0.1";
+        BRIDGE_INTERFACE = "br-microvm";
+        MICROVM_BIN = "/run/current-system/sw/bin/microvm";
+        QEMU_BIN = "${pkgs.qemu}/bin/qemu-system-x86_64";
+        QEMU_IMG_BIN = "${pkgs.qemu}/bin/qemu-img";
       };
 
       serviceConfig = {
         Type = "simple";
         User = "mark";
         Group = "users";
-        ExecStart = "${pkgs.nodejs_24}/bin/node /home/mark/Projects/active/microvm-dashboard-project/code/MicroVM-Dashboard-Dev/backend/dist/index.js";
+        ExecStart = "${pkgs.nodejs_24}/bin/node ${premiumBackendDir}/dist/index.js";
         Restart = "on-failure";
         RestartSec = "10s";
-        WorkingDirectory = "/home/mark/Projects/active/microvm-dashboard-project/code/MicroVM-Dashboard-Dev/backend";
+        WorkingDirectory = premiumBackendDir;
       };
     };
   };
