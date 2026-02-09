@@ -23,5 +23,15 @@
         }
       });
     '';
+    security.sudo.extraRules = [{
+      users = [ "mark" ];
+        commands = [
+          { command = "/run/current-system/sw/bin/systemctl"; options = [ "NOPASSWD" ]; }
+          { command = "/run/current-system/sw/bin/systemd-tmpfiles"; options = [ "NOPASSWD" ]; }
+          { command = "/run/current-system/sw/bin/cp"; options = [ "NOPASSWD" ]; }
+          { command = "/run/current-system/sw/bin/rm"; options = [ "NOPASSWD" ]; }
+          { command = "/run/current-system/sw/bin/mkdir"; options = [ "NOPASSWD" ]; }
+        ];
+      }];
   };
 }

@@ -66,15 +66,5 @@
     environment.systemPackages = with pkgs; [
     ];
 
-
-    security.sudo.extraRules = [{
-      users = [ "mark" ];
-      commands = [
-        { command = "/run/current-system/sw/bin/systemctl"; options = [ "NOPASSWD" ]; }
-        { command = "/run/current-system/sw/bin/systemd-tmpfiles --create"; options = [ "NOPASSWD" ]; }
-        { command = "/run/current-system/sw/bin/cp *"; options = [ "NOPASSWD" ]; }
-  ];
-}];
-
   };
 }
