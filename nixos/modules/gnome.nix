@@ -27,7 +27,9 @@
       xclip
       xsel
       #extensions
-      gnomeExtensions.tophat
+      # gnomeExtensions.tophat
+      gnomeExtensions.astra-monitor
+      libgtop
       gnomeExtensions.force-quit
       gnomeExtensions.dash-to-dock
       gnomeExtensions.hide-activities-button
@@ -36,6 +38,9 @@
       nautilus-python
       nautilus-open-any-terminal
     ];
+    # Needed for astra-monitor (libgtop GObject introspection)
+    environment.variables.GI_TYPELIB_PATH = "/run/current-system/sw/lib/girepository-1.0";
+
     #exclude some Gnome Packages
     environment.gnome.excludePackages = with pkgs;[
       geary # email

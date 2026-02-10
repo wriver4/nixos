@@ -6,6 +6,7 @@
       # productivity
       glow # markdown previewer in terminal
       btop  # replacement of htop/nmon
+      nvtop # GPU monitoring (works with nouveau)
       iotop # io monitoring
       iftop # network monitoring
 

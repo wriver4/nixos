@@ -21,7 +21,6 @@ in
       krita
       gimp
       unstable.inkscape-with-extensions
-      # gpustat
       imagemagick # image manipulation
       cobang  # qrcode scanner
 
