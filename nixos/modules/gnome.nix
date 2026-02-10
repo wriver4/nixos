@@ -53,10 +53,10 @@
     ];
 
     # Hide desktop icons for CLI-only tools
-    xdg.desktopEntries.nvtop = {
-      name = "nvtop";
-      noDisplay = true;
-    };
+    environment.etc."xdg/applications/nvtop.desktop".text = ''
+      [Desktop Entry]
+      NoDisplay=true
+    '';
 
     #fontDir.enable = true;
     fonts.packages = with pkgs; [
