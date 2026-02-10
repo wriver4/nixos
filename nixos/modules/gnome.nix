@@ -52,6 +52,12 @@
       epiphany # web browser
     ];
 
+    # Hide desktop icons for CLI-only tools
+    xdg.desktopEntries.nvtop = {
+      name = "nvtop";
+      noDisplay = true;
+    };
+
     #fontDir.enable = true;
     fonts.packages = with pkgs; [
       corefonts
