@@ -7,7 +7,7 @@ let
     sha256 = "sha256-X9QfKy4AJrsg6CMlnmq0HuVmsa9She1B1LKoL9rDNBo=";
   };
 
-  # Desktop item to open n8n in Epiphany as a web app
+  # Desktop item to open n8n as a web app
   n8nWebApp = pkgs.makeDesktopItem {
     name = "n8n";
     desktopName = "n8n Workflow Automation";
