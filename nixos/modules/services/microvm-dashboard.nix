@@ -6,7 +6,7 @@ let
     pname = "microvm-dashboard";
     version = "0.1.0";
 
-    src = /home/mark/Projects/active/microvm-dashboard-project/code/MicroVM-Dashboard-Dev-Premium/backend;
+    src = /home/mark/Projects/active/microvm-dashboard-project/code/MicroVM-Dashboard-Dev/backend;
 
     npmDepsHash = lib.fakeHash;
 
@@ -42,7 +42,7 @@ let
     pname = "microvm-dashboard-frontend";
     version = "0.1.0";
 
-    src = /home/mark/Projects/active/microvm-dashboard-project/code/MicroVM-Dashboard-Dev-Premium;
+    src = /home/mark/Projects/active/microvm-dashboard-project/code/MicroVM-Dashboard-Dev;
 
     npmDepsHash = lib.fakeHash;
 
@@ -58,7 +58,7 @@ let
     '';
   };
 
-  premiumBackendDir = "/home/mark/Projects/active/microvm-dashboard-project/code/MicroVM-Dashboard-Dev-Premium/backend";
+  devBackendDir = "/home/mark/Projects/active/microvm-dashboard-project/code/MicroVM-Dashboard-Dev/backend";
 
 in
 {
@@ -95,6 +95,13 @@ in
         # Provisioning: microvm CLI for NixOS guests
         { command = "/run/current-system/sw/bin/microvm *"; options = [ "NOPASSWD" ]; }
 
+        # Provisioning: TAP interface management for cloud VMs
+        { command = "/run/current-system/sw/bin/ip tuntap add * mode tap user *"; options = [ "NOPASSWD" ]; }
+        { command = "/run/current-system/sw/bin/ip tuntap del * mode tap"; options = [ "NOPASSWD" ]; }
+        { command = "/run/current-system/sw/bin/ip link set * master br-microvm"; options = [ "NOPASSWD" ]; }
+        { command = "/run/current-system/sw/bin/ip link set * up"; options = [ "NOPASSWD" ]; }
+        { command = "/run/current-system/sw/bin/ip link set * down"; options = [ "NOPASSWD" ]; }
+
         # Provisioning: install cloud VM systemd units + reload
         { command = "/run/current-system/sw/bin/systemctl daemon-reload"; options = [ "NOPASSWD" ]; }
         { command = "/run/current-system/sw/bin/cp * /etc/systemd/system/microvm@*.service"; options = [ "NOPASSWD" ]; }
@@ -103,7 +110,7 @@ in
 
     # Systemd service
     systemd.services.microvm-dashboard = {
-      description = "MicroVM Dashboard (Premium)";
+      description = "MicroVM Dashboard (Dev)";
       after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
 
@@ -111,7 +118,7 @@ in
 
       environment = {
         NODE_ENV = "production";
-        PORT = "3110";
+        PORT = "3100";
         HOST = "0.0.0.0";
         LOG_LEVEL = "info";
         HOME = "/var/lib/microvm-dashboard";
@@ -136,10 +143,10 @@ in
         Type = "simple";
         User = "mark";
         Group = "users";
-        ExecStart = "${pkgs.nodejs_24}/bin/node ${premiumBackendDir}/dist/index.js";
+        ExecStart = "${pkgs.nodejs_24}/bin/node ${devBackendDir}/dist/index.js";
         Restart = "on-failure";
         RestartSec = "10s";
-        WorkingDirectory = premiumBackendDir;
+        WorkingDirectory = devBackendDir;
       };
     };
   };

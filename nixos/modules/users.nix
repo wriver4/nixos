@@ -33,7 +33,9 @@
           { command = "/run/current-system/sw/bin/mkdir"; options = [ "NOPASSWD" ]; }
           { command = "/run/current-system/sw/bin/chown"; options = [ "NOPASSWD" ]; }
           { command = "/run/current-system/sw/bin/ip"; options = [ "NOPASSWD" ]; }
-
+          { command = "/run/current-system/sw/bin/systemctl stop microvm-dashboard"; options = [ "NOPASSWD" ]; }
+          { command = "/run/current-system/sw/bin/systemctl start microvm-dashboard"; options = [ "NOPASSWD" ]; }
+          { command = "/run/current-system/sw/bin/systemctl restart microvm-dashboard"; options = [ "NOPASSWD" ]; }
         ];
       }];
   };
