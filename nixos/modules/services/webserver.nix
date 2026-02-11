@@ -287,7 +287,7 @@ in
     (map (site: "f /var/www/${site}/index.php 0664 mark www-data - \"<?php echo '<h1>${site}</h1>'; phpinfo(); ?>\"") sites) ++
     (map (site: "f /var/www/${site}/index.html 0664 mark www-data - \"<!DOCTYPE html><html><head><title>${site}</title></head><body><h1>${site}</h1><p>React site ready</p></body></html>\"") reactSites) ++
     [ "d /tmp/phpmyadmin 0770 www-data www-data -" ] ++
-    [ "d /var/www/microvm-dashboard 0775 www-data www-data -" ] ++
+    [ "d /var/www/microvm-dashboard 0775 mark www-data -" ] ++
     [ "f /var/lib/pgadmin/initial-password 0600 pgadmin pgadmin - changeme" ];
 
   services.pgadmin = {
