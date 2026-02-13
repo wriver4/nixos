@@ -68,7 +68,10 @@ in
       isSystemUser = true;
       group = "microvm-dashboard";
       home = "/var/lib/microvm-dashboard";
-      createHome = true;
+      # createHome intentionally omitted — tmpfiles rule below handles
+      # directory creation with mark:users ownership (dev mode).
+      # createHome would set microvm-dashboard:microvm-dashboard 0700,
+      # conflicting with the service running as mark.
       extraGroups = [ "kvm" ];
     };
     users.groups.microvm-dashboard = {};
