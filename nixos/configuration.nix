@@ -33,8 +33,6 @@
     ./modules/services/n8n.nix
     ./modules/services/cockpit.nix
     ./modules/virtualization.nix
-    ./modules/services/microvm-host.nix
-    ./modules/services/microvm-dashboard.nix
     ./modules/altpkgmgr.nix
     ./modules/software/gui
     ./modules/software/cli
