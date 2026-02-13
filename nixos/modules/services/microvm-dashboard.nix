@@ -129,6 +129,12 @@ in
         VM_STORAGE_BACKEND = "json";
         VM_DATA_DIR = "/var/lib/microvm-dashboard";
 
+        # System paths
+        SUDO_PATH = "/run/wrappers/bin/sudo";
+        SYSTEMCTL_PATH = "/run/current-system/sw/bin/systemctl";
+        IPTABLES_PATH = "/run/current-system/sw/bin/iptables";
+        IP_BIN = "/run/current-system/sw/bin/ip";
+
         # Provisioning
         PROVISIONING_ENABLED = "true";
         MICROVMS_DIR = "/var/lib/microvms";
