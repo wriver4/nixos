@@ -1,24 +1,14 @@
 { config, pkgs, lib, ... }:
 
 {
-  config = {
-    # Bridge networking for MicroVM connectivity
-    networking.bridges.br-microvm.interfaces = [];
-    networking.interfaces.br-microvm.ipv4.addresses = [{
-      address = "10.10.0.1";
-      prefixLength = 24;
-    }];
-
-    # NAT for VM internet access
-    networking.nat = {
-      enable = true;
-      internalInterfaces = [ "br-microvm" ];
-    };
-
-    # Trust bridge traffic (no firewall filtering between host and VMs)
-    networking.firewall.trustedInterfaces = [ "br-microvm" ];
-
-    # IP forwarding
-    boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
-  };
+  # Bridge networking and NAT are now managed by the microvm-dashboard module
+  # when provisioningEnabled = true. See microvm-dashboard.nix.
+  #
+  # Previously this file configured:
+  #   - networking.bridges.br-microvm
+  #   - networking.nat (internalInterfaces)
+  #   - boot.kernel.sysctl ip_forward
+  #
+  # The module in nixos/default.nix handles all of this when
+  # services.microvm-dashboard.provisioningEnabled = true.
 }
