@@ -1,8 +1,8 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   imports = [
-    /home/mark/Projects/active/microvm-dashboard-project/code/MicroVM-Dashboard-Dev/nixos/default.nix
+    inputs.microvm-dashboard.nixosModules.default
   ];
 
   config = {

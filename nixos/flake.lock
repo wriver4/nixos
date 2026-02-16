@@ -62,6 +62,23 @@
         "type": "github"
       }
     },
+    "microvm-dashboard": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 0,
+        "narHash": "sha256-C+AEWZxom4h294TPE8HHB3OpBG0Z0uI7h9IvhSIMXio=",
+        "path": "/home/mark/Projects/active/microvm-dashboard-project/code/MicroVM-Dashboard-Dev",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/mark/Projects/active/microvm-dashboard-project/code/MicroVM-Dashboard-Dev",
+        "type": "path"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1770136044,
@@ -99,6 +116,7 @@
         "claude-desktop": "claude-desktop",
         "flake-utils": "flake-utils",
         "microvm": "microvm",
+        "microvm-dashboard": "microvm-dashboard",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable"
       }

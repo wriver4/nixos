@@ -15,9 +15,13 @@
     # MicroVM support
     microvm.url = "github:astro/microvm.nix";
     microvm.inputs.nixpkgs.follows = "nixpkgs";
+
+    # MicroVM Dashboard (local dev path)
+    microvm-dashboard.url = "path:/home/mark/Projects/active/microvm-dashboard-project/code/MicroVM-Dashboard-Dev";
+    microvm-dashboard.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, claude-desktop, microvm, ... }@inputs: {
+  outputs = { self, nixpkgs, nixpkgs-unstable, claude-desktop, microvm, microvm-dashboard, ... }@inputs: {
     # NixOS configuration matching the system hostname
     nixosConfigurations.king = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
