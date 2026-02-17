@@ -12,12 +12,8 @@
       host = "0.0.0.0";
       openFirewall = true;
 
-      # Premium + provisioning
+      # Premium
       premiumEnabled = true;
-      provisioningEnabled = true;
-      bridgeInterface = "br-microvm";
-      bridgeGateway = "10.10.0.1";
-      microvmsDir = "/var/lib/microvms";
 
       # Storage
       storageBackend = "json";
