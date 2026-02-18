@@ -15,6 +15,9 @@
       # Premium
       premiumEnabled = true;
 
+      # Example VM for testing
+      exampleVm.enable = true;
+
       # Storage
       storageBackend = "json";
       dataDir = "/var/lib/microvm-dashboard";
