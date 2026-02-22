@@ -23,7 +23,7 @@ in
       unstable.inkscape-with-extensions
       imagemagick # image manipulation
       cobang  # qrcode scanner
-
+      scantailor-universal
       # drawing
       drawio
 
