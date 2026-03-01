@@ -6,10 +6,8 @@
     services.displayManager.gdm.enable = true;
     services.desktopManager.gnome.enable = true;
 
-    # Allow root-owned services (AnyDesk) to access the user's X/XWayland display
-    services.xserver.displayManager.sessionCommands = ''
-      ${pkgs.xorg.xhost}/bin/xhost +SI:localuser:root
-    '';
+    # GNOME Remote Desktop (RDP via PipeWire — works natively on Wayland)
+    services.gnome.gnome-remote-desktop.enable = true;
 
     services.gnome.gnome-keyring.enable = true;
     services.gvfs.enable = true;

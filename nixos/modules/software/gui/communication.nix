@@ -8,7 +8,7 @@
     # Protect AnyDesk daemon from being OOM killed (overlays on the package service)
     systemd.services.anydesk = {
       wantedBy = [ "multi-user.target" ];
-      path = with pkgs; [ iproute2 util-linux hostname glibc.bin ];
+      path = with pkgs; [ iproute2 util-linux nettools glibc.bin ];
       serviceConfig = {
         OOMScoreAdjust = -500;
         MemoryHigh = "infinity";
