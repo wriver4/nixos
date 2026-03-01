@@ -7,7 +7,7 @@
     services.desktopManager.gnome.enable = true;
 
     # Allow root-owned services (AnyDesk) to access the user's X/XWayland display
-    services.displayManager.sessionCommands = ''
+    services.xserver.displayManager.sessionCommands = ''
       ${pkgs.xorg.xhost}/bin/xhost +SI:localuser:root
     '';
 
