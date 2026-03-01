@@ -2,10 +2,17 @@
 
 {
   config = {
-    # Protect AnyDesk daemon from being OOM killed
-    systemd.services.anydesk.serviceConfig = {
-      OOMScoreAdjust = -500;
-      MemoryHigh = "infinity";
+    # Pull in the anydesk package's systemd service file
+    systemd.packages = [ pkgs.anydesk ];
+
+    # Protect AnyDesk daemon from being OOM killed (overlays on the package service)
+    systemd.services.anydesk = {
+      wantedBy = [ "multi-user.target" ];
+      path = with pkgs; [ iproute2 util-linux hostname glibc.bin ];
+      serviceConfig = {
+        OOMScoreAdjust = -500;
+        MemoryHigh = "infinity";
+      };
     };
 
     environment.systemPackages = with pkgs; [

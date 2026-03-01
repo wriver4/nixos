@@ -6,6 +6,11 @@
     services.displayManager.gdm.enable = true;
     services.desktopManager.gnome.enable = true;
 
+    # Allow root-owned services (AnyDesk) to access the user's X/XWayland display
+    services.displayManager.sessionCommands = ''
+      ${pkgs.xorg.xhost}/bin/xhost +SI:localuser:root
+    '';
+
     services.gnome.gnome-keyring.enable = true;
     services.gvfs.enable = true;
 
