@@ -30,8 +30,8 @@
       wl-clipboard-x11
       xclip
       xsel
+      gnome-remote-desktop
       #extensions
-      # gnomeExtensions.tophat
       gnomeExtensions.astra-monitor
       libgtop
       gnomeExtensions.force-quit
