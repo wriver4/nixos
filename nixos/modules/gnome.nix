@@ -8,6 +8,9 @@
 
     # GNOME Remote Desktop (RDP via PipeWire — works natively on Wayland)
     services.gnome.gnome-remote-desktop.enable = true;
+    systemd.services.gnome-remote-desktop = {
+      wantedBy = [ "graphical.target" ];
+    };
 
     services.gnome.gnome-keyring.enable = true;
     services.gvfs.enable = true;
