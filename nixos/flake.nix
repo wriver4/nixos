@@ -17,8 +17,8 @@
     microvm.inputs.nixpkgs.follows = "nixpkgs";
 
     # MicroVM Dashboard (local dev path)
-    microvm-dashboard.url = "path:/home/mark/Projects/active/microvm-dashboard-project/code";
-    microvm-dashboard.inputs.nixpkgs.follows = "nixpkgs";
+    #microvm-dashboard.url = "path:/home/mark/Projects/active/microvm-dashboard-project/code";
+    #microvm-dashboard.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, claude-desktop, microvm, microvm-dashboard, ... }@inputs: {
