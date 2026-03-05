@@ -13,8 +13,8 @@
     claude-desktop.inputs.flake-utils.follows = "flake-utils";
 
     # MicroVM support
-    microvm.url = "github:astro/microvm.nix";
-    microvm.inputs.nixpkgs.follows = "nixpkgs";
+    #microvm.url = "github:astro/microvm.nix";
+    #microvm.inputs.nixpkgs.follows = "nixpkgs";
 
     # MicroVM Dashboard (local dev path)
     #microvm-dashboard.url = "path:/home/mark/Projects/active/microvm-dashboard-project/code";
