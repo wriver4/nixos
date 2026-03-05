@@ -70,12 +70,12 @@
       },
       "locked": {
         "lastModified": 0,
-        "narHash": "sha256-BuVgF/4IGQ4RabHCPijhDGPiIwrZytc1OA8zCIJrOg8=",
-        "path": "/home/mark/Projects/active/microvm-dashboard-project/code/MicroVM-Dashboard-Dev",
+        "narHash": "sha256-OtA1s6YV7vX1zFJ1/VdyqCctJBkDIgy2palu7g7s4/8=",
+        "path": "/home/mark/Projects/active/microvm-dashboard-project/code",
         "type": "path"
       },
       "original": {
-        "path": "/home/mark/Projects/active/microvm-dashboard-project/code/MicroVM-Dashboard-Dev",
+        "path": "/home/mark/Projects/active/microvm-dashboard-project/code",
         "type": "path"
       }
     },
