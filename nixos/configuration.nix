@@ -113,6 +113,7 @@ EOF
     "${pkgs.gnome-remote-desktop}/share/gsettings-schemas/${pkgs.gnome-remote-desktop.name}"
     ];
   environment.variables.ELECTRON_RUN_AS_NODE = lib.mkForce "";
+  environment.pathsToLink = [ "/share/gsettings-schemas" ];
  
   # Ensure proper desktop integration
   xdg = {
