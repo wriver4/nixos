@@ -17,7 +17,7 @@
     microvm.inputs.nixpkgs.follows = "nixpkgs";
 
     # MicroVM Dashboard (local dev path)
-    microvm-dashboard.url = "path:/home/mark/Projects/active/microvm-dashboard-project/code/MicroVM-Dashboard-Dev";
+    microvm-dashboard.url = "path:/home/mark/Projects/active/microvm-dashboard-project/code";
     microvm-dashboard.inputs.nixpkgs.follows = "nixpkgs";
   };
 
