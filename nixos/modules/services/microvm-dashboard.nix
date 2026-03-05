@@ -2,9 +2,9 @@
 
 {
   imports = [
-    inputs.microvm-dashboard.nixosModules.default
+    #inputs.microvm-dashboard.nixosModules.default
   ];
-
+/*
   config = {
     services.microvm-dashboard = {
       enable = true;
@@ -17,14 +17,15 @@
 
       # Storage
       storageBackend = "json";
-      dataDir = "/var/lib/microvm-dashboard";
+      #dataDir = "/var/lib/microvm-dashboard";
 
       # Auth (create these files before first nixos-rebuild, see deployment steps)
-      jwtSecretFile = "/var/lib/microvm-dashboard/.jwt-secret";
-      initialAdminPasswordFile = "/var/lib/microvm-dashboard/.admin-password";
+      #jwtSecretFile = "/var/lib/microvm-dashboard/.jwt-secret";
+      #initialAdminPasswordFile = "/var/lib/microvm-dashboard/.admin-password";
     };
 
     # Trust bridge traffic (host <-> VM, not in the module)
     networking.firewall.trustedInterfaces = [ "br-microvm" ];
   };
 }
+*/
