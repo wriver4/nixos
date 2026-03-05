@@ -44,11 +44,7 @@
     ];
     # Needed for astra-monitor (libgtop GObject introspection)
     environment.variables.GI_TYPELIB_PATH = "/run/current-system/sw/lib/girepository-1.0";
-    # Needed for gettings 
-    environment.sessionVariables.XDG_DATA_DIRS = [
-     "${pkgs.gnome-remote-desktop}/share/gsettings-schemas/${pkgs.gnome-remote-desktop.name}"
-    ];
-
+    
     #exclude some Gnome Packages
     environment.gnome.excludePackages = with pkgs;[
       geary # email

@@ -108,10 +108,12 @@ EOF
   ];
 
   environment.sessionVariables.ELECTRON_OZONE_PLATFORM_HINT = "wayland";
-  environment.sessionVariables.XDG_DATA_DIRS = [ "$HOME/.nix-profile/share" ];
+  environment.sessionVariables.XDG_DATA_DIRS = [ 
+    "$HOME/.nix-profile/share"
+    "${pkgs.gnome-remote-desktop}/share/gsettings-schemas/${pkgs.gnome-remote-desktop.name}"
+    ];
   environment.variables.ELECTRON_RUN_AS_NODE = lib.mkForce "";
-
-
+ 
   # Ensure proper desktop integration
   xdg = {
     portal.enable = true;
