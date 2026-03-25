@@ -5,6 +5,7 @@
     environment.systemPackages = with pkgs; [
       pciutils # lspci
       usbutils # lsusb
+      dmidecode # hardware info from BIOS/UEFI (DMI/SMBIOS)
       inetutils # ping, telnet, ftp, rcp, rlogin, rsh, rwho, tftp, rcp
       smartmontools # for `smartctl` command
 
