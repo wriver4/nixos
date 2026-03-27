@@ -5,6 +5,7 @@
     programs.starship= {
     enable = true;
     settings = {
+      scan_timeout = 100;
       command_timeout = 1000; # in milliseconds 
     };
    };
