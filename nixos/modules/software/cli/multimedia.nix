@@ -10,6 +10,7 @@
       #gpu-screen-recorder
       # Support for GTk-4 desktop extension
       imagemagick # A software suite to create, edit, compose, or convert bitmap images
+      python313Packages.weasyprint # HTML/CSS to PDF renderer
       gjs
       gdk-pixbuf
     ];
