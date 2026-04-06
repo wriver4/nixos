@@ -19,6 +19,7 @@
       #
       #git
       gh # GitHub CLI (gh) is the official command line tool for GitHub.
+      mkcert # Generate locally-trusted development certificates
     ];
     # required by nixd
     #nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
