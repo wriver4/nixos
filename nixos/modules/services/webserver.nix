@@ -34,8 +34,10 @@ let
 
   mkReactVirtualHost = siteName: {
     root = "/var/www/${siteName}";
-    forceSSL = false;
+    addSSL = true;
     enableACME = false;
+    sslCertificate = "/var/lib/mkcert/local.pem";
+    sslCertificateKey = "/var/lib/mkcert/local-key.pem";
     locations."/" = {
       tryFiles = "$uri $uri/ /index.html";
     };
@@ -43,8 +45,10 @@ let
 
   mkPhpVirtualHost = siteName: {
     root = "/var/www/${siteName}";
-    forceSSL = false;
+    addSSL = true;
     enableACME = false;
+    sslCertificate = "/var/lib/mkcert/local.pem";
+    sslCertificateKey = "/var/lib/mkcert/local-key.pem";
     locations."/" = {
       index = "index.php";
       tryFiles = "$uri $uri/ /index.php?$query_string";
@@ -86,16 +90,20 @@ let
     // lib.listToAttrs (map (site: lib.nameValuePair site (mkReactVirtualHost site)) reactSites)
     // {
     "pgadmin.local" = {
-      forceSSL = false;
+      addSSL = true;
       enableACME = false;
+      sslCertificate = "/var/lib/mkcert/local.pem";
+      sslCertificateKey = "/var/lib/mkcert/local-key.pem";
       locations."/" = {
         proxyPass = "http://127.0.0.1:5050";
         proxyWebsockets = true;
       };
     };
     "oracle.local" = {
-      forceSSL = false;
+      addSSL = true;
       enableACME = false;
+      sslCertificate = "/var/lib/mkcert/local.pem";
+      sslCertificateKey = "/var/lib/mkcert/local-key.pem";
       locations."/" = {
         proxyPass = "https://127.0.0.1:5500";
         proxyWebsockets = true;
@@ -103,8 +111,10 @@ let
     };
     "localhost" = {
       root = "/var/www/localhost";
-      forceSSL = false;
+      addSSL = true;
       enableACME = false;
+      sslCertificate = "/var/lib/mkcert/local.pem";
+      sslCertificateKey = "/var/lib/mkcert/local-key.pem";
       default = true;
       locations."/" = {
         index = "index.html";
@@ -112,8 +122,10 @@ let
     };
     "phpmyadmin.local" = {
       root = "${phpmyadminRoot}";
-      forceSSL = false;
+      addSSL = true;
       enableACME = false;
+      sslCertificate = "/var/lib/mkcert/local.pem";
+      sslCertificateKey = "/var/lib/mkcert/local-key.pem";
       locations."/" = {
         index = "index.php";
         tryFiles = "$uri $uri/ /index.php?$query_string";
@@ -127,8 +139,10 @@ let
       };
     };
     "microvm.local" = {
-      forceSSL = false;
+      addSSL = true;
       enableACME = false;
+      sslCertificate = "/var/lib/mkcert/local.pem";
+      sslCertificateKey = "/var/lib/mkcert/local-key.pem";
       root = "/var/www/microvm-dashboard";
       locations."/" = {
         tryFiles = "$uri $uri/ /index.html";
