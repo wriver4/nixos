@@ -10,6 +10,7 @@
       unstable.kdePackages.ghostwriter # markdown editor
       #stirling-pdf
       zettlr
+      vivify # Markdown/Jupyter viewer in the browser
     ];
   };
 }
