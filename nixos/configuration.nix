@@ -13,6 +13,8 @@
     download-buffer-size = 1048576000; # 1000 MiB
   };
 
+  services.weaver.enable = true;
+
   # Enable automatic optimization of the Nix store
   nix.settings.auto-optimise-store = true;
   nix.optimise.automatic = true;
@@ -33,7 +35,7 @@
     ./modules/services/n8n.nix
     ./modules/services/cockpit.nix
     ./modules/virtualization.nix
-    ./modules/services/weaver.nix
+    #./modules/services/weaver.nix
     ./modules/altpkgmgr.nix
     ./modules/software/gui
     ./modules/software/cli
