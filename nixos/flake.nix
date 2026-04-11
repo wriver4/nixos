@@ -11,7 +11,7 @@
     claude-desktop.url = "github:k3d3/claude-desktop-linux-flake";
     claude-desktop.inputs.nixpkgs.follows = "nixpkgs";
     claude-desktop.inputs.flake-utils.follows = "flake-utils";
-    inputs.weaver = {
+    weaver = {
       url = "path:/home/mark/Projects/active/fabrick-weaver-project/code";
       inputs.nixpkgs.follows = "nixpkgs";
     };
