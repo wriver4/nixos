@@ -13,6 +13,7 @@
     download-buffer-size = 1048576000; # 1000 MiB
   };
 
+  services.weaver.enable = true;
 
   # Enable automatic optimization of the Nix store
   nix.settings.auto-optimise-store = true;
