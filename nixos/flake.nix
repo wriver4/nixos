@@ -19,7 +19,7 @@
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, claude-desktop, ... }@inputs: {
+  outputs = { self, nixpkgs, nixpkgs-unstable, claude-desktop, weaver, ... }@inputs: {
     # NixOS configuration matching the system hostname
     nixosConfigurations.king = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
