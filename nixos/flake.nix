@@ -28,6 +28,7 @@
         # Import the previous configuration.nix we used,
         # so the old configuration file still takes effect
         ./configuration.nix
+        weaver.nixosModules.default
       ];
       # Pass inputs to modules so they can access common inputs
       specialArgs = { inherit inputs nixpkgs-unstable; };
