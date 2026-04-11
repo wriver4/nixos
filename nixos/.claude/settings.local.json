@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(sudo nixos-rebuild dry-build:*)",
+      "Bash(nixos-rebuild dry-build:*)",
+      "Bash(git add:*)",
+      "Bash(git rev-parse:*)",
+      "Bash(cat:*)",
+      "Bash(nix flake update:*)",
+      "Bash(sudo nix flake update:*)",
+      "Bash(chmod:*)",
+      "Bash(echo:*)",
+      "Bash(gsettings list-schemas:*)",
+      "Bash(GSETTINGS_SCHEMA_DIR=/run/current-system/sw/share/gnome-shell/extensions/ding@rastersoft.com/schemas gsettings list-keys:*)",
+      "Bash(nix log:*)",
+      "Bash(gnome-extensions info:*)",
+      "Bash(journalctl:*)",
+      "Bash(GSETTINGS_SCHEMA_DIR=/run/current-system/sw/share/gnome-shell/extensions/gtk4-ding@smedius.gitlab.com/schemas gsettings list-keys:*)",
+      "Bash(nix-prefetch-url:*)",
+      "Bash(nix hash to-sri:*)",
+      "Bash(gh repo create:*)",
+      "Bash(git push:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
