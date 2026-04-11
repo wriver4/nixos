@@ -1,7 +1,7 @@
 {
   description = "A simple wrapper NixOS flake";
 
-  inputs = {
+ inputs = {
     # NixOS official package source
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -11,16 +11,10 @@
     claude-desktop.url = "github:k3d3/claude-desktop-linux-flake";
     claude-desktop.inputs.nixpkgs.follows = "nixpkgs";
     claude-desktop.inputs.flake-utils.follows = "flake-utils";
-    weaver = {
-      url = "path:/home/mark/Projects/active/fabrick-weaver-project/code";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, claude-desktop, weaver, ... }@inputs: {
+  outputs = { self, nixpkgs, nixpkgs-unstable, claude-desktop, ... }@inputs: {
     # NixOS configuration matching the system hostname
     nixosConfigurations.king = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -28,7 +22,6 @@
         # Import the previous configuration.nix we used,
         # so the old configuration file still takes effect
         ./configuration.nix
-        weaver.nixosModules.default
       ];
       # Pass inputs to modules so they can access common inputs
       specialArgs = { inherit inputs nixpkgs-unstable; };
