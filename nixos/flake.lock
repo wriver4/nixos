@@ -78,7 +78,8 @@
         "claude-desktop": "claude-desktop",
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-unstable": "nixpkgs-unstable"
+        "nixpkgs-unstable": "nixpkgs-unstable",
+        "weaver": "weaver"
       }
     },
     "systems": {
@@ -94,6 +95,23 @@
         "owner": "nix-systems",
         "repo": "default",
         "type": "github"
+      }
+    },
+    "weaver": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 0,
+        "narHash": "sha256-GxQHlDxPphIbz6RqEuU+ZaBoXrUVVlcu/vBYLJgc/AQ=",
+        "path": "/home/mark/Projects/active/fabrick-weaver-project/code",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/mark/Projects/active/fabrick-weaver-project/code",
+        "type": "path"
       }
     }
   },
