@@ -33,9 +33,13 @@
           { command = "/run/current-system/sw/bin/mkdir"; options = [ "NOPASSWD" ]; }
           { command = "/run/current-system/sw/bin/chown"; options = [ "NOPASSWD" ]; }
           { command = "/run/current-system/sw/bin/ip"; options = [ "NOPASSWD" ]; }
-          #{ command = "/run/current-system/sw/bin/systemctl stop microvm-dashboard"; options = [ "NOPASSWD" ]; }
-          #{ command = "/run/current-system/sw/bin/systemctl start microvm-dashboard"; options = [ "NOPASSWD" ]; }
-          #{ command = "/run/current-system/sw/bin/systemctl restart microvm-dashboard"; options = [ "NOPASSWD" ]; }
+          # Weaver
+          { command = "/run/current-system/sw/bin/nixos-rebuild"; options = [ "NOPASSWD" ]; }
+          { command = "/run/current-system/sw/bin/journalctl"; options = [ "NOPASSWD" ]; }
+          { command = "/run/current-system/sw/bin/nix"; options = [ "NOPASSWD" ]; }
+          { command = "/home/mark/Projects/active/fabrick-weaver-project/code/scripts/nix-rebuild-local.sh"; options = [ "NOPASSWD" ]; }
+          { command = "/home/mark/Projects/active/fabrick-weaver-project/code/scripts/nix-fresh-install.sh"; options = [ "NOPASSWD" ]; }
+          { command = "/home/mark/Projects/active/fabrick-weaver-project/code/scripts/nix-uninstall.sh"; options = [ "NOPASSWD" ]; }
         ];
       }];
   };
