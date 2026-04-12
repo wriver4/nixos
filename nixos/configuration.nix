@@ -15,7 +15,6 @@
 
 
   # Weaver
-  services.weaver.enable = true;
 
   # Enable automatic optimization of the Nix store
   nix.settings.auto-optimise-store = true;

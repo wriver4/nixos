@@ -12,19 +12,16 @@
     claude-desktop.inputs.nixpkgs.follows = "nixpkgs";
     claude-desktop.inputs.flake-utils.follows = "flake-utils";
 
-    # Weaver
-    weaver.url = "path:/home/mark/Projects/active/fabrick-weaver-project/code";
-    weaver.inputs.nixpkgs.follows = "nixpkgs";
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, claude-desktop, weaver, ... }@inputs: {
+  outputs = { self, nixpkgs, nixpkgs-unstable, claude-desktop, ... }@inputs: {
     # NixOS configuration matching the system hostname
     nixosConfigurations.king = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         ./configuration.nix
-        weaver.nixosModules.default
+
       ];
       # Pass inputs to modules so they can access common inputs
       specialArgs = { inherit inputs nixpkgs-unstable; };
