@@ -1,0 +1,5 @@
+# Allow public certs (NOT keys)
+!secrets/*.pem
+secrets/*-key.pem
+secrets/*.key
+result
